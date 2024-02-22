@@ -1,4 +1,4 @@
-import { Roles } from "@/models";
+import { PrivateRoutes, PublicRoutes, Roles } from "@/models";
 import { AppStore } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
@@ -13,10 +13,10 @@ export const AuthGuard = ({ privateValidation }: Props) => {
     privateValidation ? (
       <Outlet />
     ) : (
-      <Navigate replace to={} />
+      <Navigate replace to={PrivateRoutes.PRIVATE} />
     )
   ) : (
-    <Navigate replace to={} />
+    <Navigate replace to={PublicRoutes.HOME} />
   );
 };
 export default AuthGuard;

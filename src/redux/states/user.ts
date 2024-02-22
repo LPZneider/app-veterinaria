@@ -19,7 +19,7 @@ export const userSlice = createSlice({
         return state;
       }
     },
-    logout: (state, action) => {
+    logout: (state) => {
       if (state.rol !== Roles.NO_REGISTRADO) {
         return EmptyUserState;
       } else {

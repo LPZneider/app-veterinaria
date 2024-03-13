@@ -81,12 +81,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            <img
-              style={{ marginLeft: "3rem" }}
-              src="/src/assets/logo.svg"
-              alt="logo perro"
-              width={50}
-            />
+            <img src="/src/assets/logo.svg" alt="logo perro" width={50} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -125,7 +120,12 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          <PetsIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <PetsIcon
+            sx={{
+              display: { xs: "flex", md: "none" },
+              mr: 1,
+            }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -138,6 +138,7 @@ function Navbar() {
               fontFamily: "Nunito",
               fontWeight: 700,
               letterSpacing: ".3rem",
+
               color: "inherit",
               textDecoration: "none",
             }}
@@ -167,9 +168,10 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton
-                style={{ marginRight: "3rem" }}
                 onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}
+                sx={{
+                  p: 0,
+                }}
               >
                 <Avatar alt="Remy Sharp" src="/src/assets/user.svg" />
               </IconButton>

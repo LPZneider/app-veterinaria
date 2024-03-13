@@ -9,6 +9,7 @@ import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
 import { RoleGuard } from "./guards";
 import { Props } from "./guards/rol.guard";
+import { Login } from "./pages/Login";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <RoutesWithNotFound>
               <Route path="/" element={<Navigate to={PublicRoutes.HOME} />} />
               <Route path={PublicRoutes.HOME} element={<Home />} />
+              <Route path={PublicRoutes.LOGIN} element={<Login />} />
               <Route element={<AuthGuard privateValidation={true} />}>
                 <Route element={<RoleGuard {...tipoUser} />}>
                   {rutas.map((r) => {

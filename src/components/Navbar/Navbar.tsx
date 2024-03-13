@@ -13,11 +13,9 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PetsIcon from "@mui/icons-material/Pets";
 import { useEffect } from "react";
+import { PropsNav } from "../../models/navbar";
 
-const pages = ["Productos", "Veterinarias", "iniciar sesion"];
-const settings = ["iniciar sesion"];
-
-function Navbar() {
+function Navbar({ pages, settings }: PropsNav) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -70,7 +68,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/home"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -114,8 +112,10 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" component="a" href={page.path}>
+                    {page.title}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -130,7 +130,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/home"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -147,8 +147,10 @@ function Navbar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
+              <Typography
+                component="a"
+                href={page.path}
+                key={page.title}
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
@@ -161,8 +163,8 @@ function Navbar() {
                   textTransform: "capitalize",
                 }}
               >
-                {page}
-              </Button>
+                {page.title}
+              </Typography>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
@@ -193,9 +195,11 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
                   <Typography
                     textAlign="center"
+                    component="a"
+                    href={setting.path}
                     sx={{
                       color: "black",
                       display: "block",
@@ -205,7 +209,7 @@ function Navbar() {
                       textTransform: "capitalize",
                     }}
                   >
-                    {setting}
+                    {setting.title}
                   </Typography>
                 </MenuItem>
               ))}

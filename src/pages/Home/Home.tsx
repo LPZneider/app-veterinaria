@@ -1,8 +1,8 @@
 "use client";
+import { Navbar } from "@/components/Navbar";
+import { propsNavHome } from "@/utilities/navProps";
 import React from "react";
 import "./Home.css";
-import { Login } from "../Login";
-import { Navbar } from "@/components/Navbar";
 
 export type HomeProps = {
   // types...
@@ -11,7 +11,7 @@ export type HomeProps = {
 const Home: React.FC<HomeProps> = ({}) => {
   return (
     <article className="home">
-      <Navbar />
+      <Navbar {...propsNavHome} />
       <section className="flex-container">
         <div className="mara1 flex-item">
           <img src="/src/assets/mara.png" alt="mara" className="mara" />

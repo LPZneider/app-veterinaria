@@ -78,7 +78,7 @@ function Navbar({ pages, settings }: PropsNav) {
               textDecoration: "none",
             }}
           >
-            <img src="/src/assets/logo.svg" alt="logo perro" width={50} />
+            <img src="/public/assets/logo.svg" alt="logo perro" width={50} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -176,7 +176,7 @@ function Navbar({ pages, settings }: PropsNav) {
                   p: 0,
                 }}
               >
-                <Avatar alt="Remy Sharp" src="/src/assets/user.svg" />
+                <Avatar alt="Remy Sharp" src="/public/assets/user.svg" />
               </IconButton>
             </Tooltip>
             <Menu

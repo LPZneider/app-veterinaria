@@ -10,7 +10,7 @@ const Home: React.FC = () => {
       <Navbar {...propsNavHome} />
       <section className="flex-container">
         <div className="mara1 flex-item">
-          <img src="/src/assets/mara.png" alt="mara" className="mara" />
+          <img src="/public/assets/mara.png" alt="mara" className="mara" />
         </div>
         <h1 className="flex-item">
           En nuestras manos y corazón, la salud y bienestar de tu mejor amigo
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
         <section className="servicios">
           <article className="article-servicio">
             <img
-              src="/src/assets/salud.svg"
+              src="/public/assets/salud.svg"
               alt="servicio1"
               className="servicio-imagen"
             />
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
           </article>
           <article className="article-servicio">
             <img
-              src="/src/assets/productos.svg"
+              src="/public/assets/productos.svg"
               alt="servicio1"
               className="servicio-imagen"
             />
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
           </article>
           <article className="article-servicio">
             <img
-              src="/src/assets/hair.svg"
+              src="/public/assets/hair.svg"
               alt="servicio1"
               className="servicio-imagen"
             />
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
           </article>
           <article className="article-servicio">
             <img
-              src="/src/assets/correa.svg"
+              src="/public/assets/correa.svg"
               alt="servicio1"
               className="servicio-imagen"
             />

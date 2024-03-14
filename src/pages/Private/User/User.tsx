@@ -4,11 +4,7 @@ import { propsNavUser } from "@/utilities";
 import React from "react";
 import "./User.css";
 
-export type UserProps = {
-  // types...
-};
-
-const User: React.FC<UserProps> = ({}) => {
+const User: React.FC = () => {
   return (
     <div className="user home">
       <Navbar {...propsNavUser} />

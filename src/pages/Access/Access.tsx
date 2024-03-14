@@ -13,7 +13,7 @@ const Access: React.FC<LoginProps> = ({ children }: LoginProps) => {
       <Navbar {...propsNavLogin} />
       <section className="luna-flex">
         <div className="div-luna">
-          <img src="/src/assets/luna.png" alt="luna" className="luna" />
+          <img src="/public/assets/luna.png" alt="luna" className="luna" />
         </div>
         {children}
       </section>

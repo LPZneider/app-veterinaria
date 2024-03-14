@@ -39,7 +39,7 @@ h1 {
 
 .mara1 {
   box-shadow: inset -5px 16px 42px 18px rgba(221, 229, 235, 0.299);
-  background-image: url(/src/assets/fondo.jpg);
+  background-image: url(/public/assets/fondo.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 

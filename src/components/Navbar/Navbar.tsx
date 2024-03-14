@@ -13,7 +13,8 @@ import MenuItem from "@mui/material/MenuItem";
 import PetsIcon from "@mui/icons-material/Pets";
 import { useEffect } from "react";
 import { PropsNav } from "../../models/navbar";
-
+import logo from "/public/assets/logo.svg";
+import user from "/public/assets/user.svg";
 function Navbar({ pages, settings }: PropsNav) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -78,7 +79,7 @@ function Navbar({ pages, settings }: PropsNav) {
               textDecoration: "none",
             }}
           >
-            <img src="/public/assets/logo.svg" alt="logo perro" width={50} />
+            <img src={logo} alt="logo perro" width={50} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -176,7 +177,7 @@ function Navbar({ pages, settings }: PropsNav) {
                   p: 0,
                 }}
               >
-                <Avatar alt="Remy Sharp" src="/public/assets/user.svg" />
+                <Avatar alt="Remy Sharp" src={user} />
               </IconButton>
             </Tooltip>
             <Menu

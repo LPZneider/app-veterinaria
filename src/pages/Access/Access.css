@@ -74,10 +74,10 @@
   .div-luna {
     width: 40vw;
     height: 80vh;
-    transform: scaleX(-1);
     scale: 1.5;
   }
   .luna {
+    right: 5rem;
     top: 0rem;
   }
 }

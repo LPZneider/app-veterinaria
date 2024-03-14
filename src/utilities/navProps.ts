@@ -20,3 +20,15 @@ export const propsNavLogin: PropsNav = {
   pages: pagesLogin,
   settings,
 };
+export const propsNavUser: PropsNav = {
+  pages: [
+    { title: "Productos", path: "/productos" },
+    { title: "Veterinarias", path: "/veterinarias" },
+    { title: "Mis Mascotas", path: "/mascotas" },
+  ],
+  settings: [
+    { title: "Mi cuenta", path: "/mi-cuenta" },
+    { title: "configuracion", path: "/configuracion" },
+    { title: "Salir", path: "/home" },
+  ],
+};

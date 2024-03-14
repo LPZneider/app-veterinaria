@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 import { AccountCircle, KeyOff } from "@mui/icons-material";
 import { Box, TextField, Button } from "@mui/material";
@@ -38,10 +38,11 @@ const Login: React.FC = () => {
   };
   const loginUser = () => {
     // Dispara el login
-    dispatch(login({ rol: Roles.VETERINARIA }));
-
-    validarRutas();
+    dispatch(login({ rol: Roles.CLIENTE }));
   };
+  useEffect(() => {
+    validarRutas();
+  }, [userState]);
   return (
     <form className="login-form">
       <Box sx={{ display: "flex", alignItems: "flex-end" }}>

@@ -67,6 +67,7 @@ h1 {
   flex-direction: column;
   align-content: flex-start;
   align-items: center;
+  overflow: hidden;
 }
 
 .article-servicio > h2 {

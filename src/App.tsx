@@ -1,19 +1,20 @@
+import { ThemeProvider, createTheme } from "@mui/material/styles"; // Cambio en la importación
 import { Suspense } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Navigate, Route } from "react-router-dom";
 import "./App.css";
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
+import { RoleGuard } from "./guards";
 import AuthGuard from "./guards/auth.guard";
+import { Props } from "./guards/rol.guard";
 import { PrivateRoutes, PublicRoutes, Roles } from "./models";
+import { Access } from "./pages/Access";
 import { Home } from "./pages/Home";
 import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
-import { RoleGuard } from "./guards";
-import { Props } from "./guards/rol.guard";
-import { createTheme } from "@mui/material/styles"; // Cambio en la importación
-import { ThemeProvider } from "@mui/material/styles";
-import { Access } from "./pages/Access";
-import { Login } from "./components/Login";
-import { Register } from "./components/Register";
+import { Veterinaria } from "./pages/Private/Veterinaria";
+import { User } from "./pages/Private/User";
 
 const theme = createTheme({
   palette: {
@@ -82,11 +83,11 @@ const tipoUser: Props[] = [
 
 const rutas = [
   {
-    element: <>user</>,
+    element: <User />,
     path: PrivateRoutes.HOME_PRIVATE_USER,
   },
   {
-    element: <>HOME_PRIVATE_VETERINARIA</>,
+    element: <Veterinaria />,
     path: PrivateRoutes.HOME_PRIVATE_VETERINARIA,
   },
   {

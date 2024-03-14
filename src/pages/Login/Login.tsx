@@ -5,19 +5,13 @@ import { AppStore } from "@/redux/store";
 import { propsNavLogin } from "@/utilities/navProps";
 import { AccountCircle, KeyOff } from "@mui/icons-material";
 
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import FormControl from "@mui/material/FormControl";
-import IconButton from "@mui/material/IconButton";
-import Input from "@mui/material/Input";
-import InputAdornment from "@mui/material/InputAdornment";
-import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
 export type LoginProps = {
   // types...
 };
@@ -57,21 +51,42 @@ const Login: React.FC<LoginProps> = ({}) => {
   };
 
   return (
-    <article className="home">
+    <article className="login home">
       <Navbar {...propsNavLogin} />
-      <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-        <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-        <TextField id="input-with-sx" label="Usuario" variant="standard" />
-      </Box>
-      <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-        <KeyOff sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-        <TextField
-          id="input-with-sx"
-          type="password"
-          label="Password"
-          variant="standard"
-        />
-      </Box>
+      <section className="luna-flex">
+        <div className="div-luna">
+          <img src="/src/assets/luna.png" alt="luna" className="luna" />
+        </div>
+        <form className="login-form">
+          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+            <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+            <TextField
+              color="secondary"
+              id="input-with-sx"
+              label="Usuario"
+              variant="standard"
+            />
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+            <KeyOff sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+            <TextField
+              color="secondary"
+              id="input-with-sx"
+              type="password"
+              label="Password"
+              variant="standard"
+            />
+          </Box>
+          <div className="buttons">
+            <Button color="secondary" variant="outlined">
+              Registrar
+            </Button>
+            <Button color="secondary" variant="outlined">
+              Enviar
+            </Button>
+          </div>
+        </form>
+      </section>
     </article>
   );
 };

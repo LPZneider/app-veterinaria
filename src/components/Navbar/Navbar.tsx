@@ -152,6 +152,7 @@ function Navbar({ pages, settings }: PropsNav) {
                 href={page.path}
                 key={page.title}
                 onClick={handleCloseNavMenu}
+                style={{ textDecoration: "none" }}
                 sx={{
                   my: 2,
                   mr: 5,
@@ -160,6 +161,7 @@ function Navbar({ pages, settings }: PropsNav) {
                   fontFamily: "Nunito",
                   fontSize: { xs: "14px", md: "16px" },
                   fontWeight: { xs: "normal", md: "600" },
+
                   textTransform: "capitalize",
                 }}
               >
@@ -199,6 +201,7 @@ function Navbar({ pages, settings }: PropsNav) {
                   <Typography
                     textAlign="center"
                     component="a"
+                    style={{ textDecoration: "none" }}
                     href={setting.path}
                     sx={{
                       color: "black",

@@ -10,30 +10,44 @@ import { RoutesWithNotFound } from "./utilities";
 import { RoleGuard } from "./guards";
 import { Props } from "./guards/rol.guard";
 import { Login } from "./pages/Login";
+import { createTheme } from "@mui/material/styles"; // Cambio en la importación
+import { ThemeProvider } from "@mui/material/styles";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#22303d", // Color principal
+    },
+    secondary: {
+      main: "#5f362c",
+    },
+  },
+});
 function App() {
   return (
     <>
-      <Suspense fallback={<>Cargando</>}>
-        <Provider store={store}>
-          <BrowserRouter>
-            <RoutesWithNotFound>
-              <Route path="/" element={<Navigate to={PublicRoutes.HOME} />} />
-              <Route path={PublicRoutes.HOME} element={<Home />} />
-              <Route path={PublicRoutes.LOGIN} element={<Login />} />
-              <Route element={<AuthGuard privateValidation={true} />}>
-                <Route element={<RoleGuard {...tipoUser} />}>
-                  {rutas.map((r) => {
-                    return (
-                      <Route path={r.path} element={r.element} key={r.path} />
-                    );
-                  })}
+      <ThemeProvider theme={theme}>
+        <Suspense fallback={<>Cargando</>}>
+          <Provider store={store}>
+            <BrowserRouter>
+              <RoutesWithNotFound>
+                <Route path="/" element={<Navigate to={PublicRoutes.HOME} />} />
+                <Route path={PublicRoutes.HOME} element={<Home />} />
+                <Route path={PublicRoutes.LOGIN} element={<Login />} />
+                <Route element={<AuthGuard privateValidation={true} />}>
+                  <Route element={<RoleGuard {...tipoUser} />}>
+                    {rutas.map((r) => {
+                      return (
+                        <Route path={r.path} element={r.element} key={r.path} />
+                      );
+                    })}
+                  </Route>
                 </Route>
-              </Route>
-            </RoutesWithNotFound>
-          </BrowserRouter>
-        </Provider>
-      </Suspense>
+              </RoutesWithNotFound>
+            </BrowserRouter>
+          </Provider>
+        </Suspense>
+      </ThemeProvider>
     </>
   );
 }

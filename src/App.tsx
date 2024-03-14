@@ -9,9 +9,11 @@ import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
 import { RoleGuard } from "./guards";
 import { Props } from "./guards/rol.guard";
-import { Login } from "./pages/Login";
 import { createTheme } from "@mui/material/styles"; // Cambio en la importación
 import { ThemeProvider } from "@mui/material/styles";
+import { Access } from "./pages/Access";
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
 
 const theme = createTheme({
   palette: {
@@ -33,7 +35,22 @@ function App() {
               <RoutesWithNotFound>
                 <Route path="/" element={<Navigate to={PublicRoutes.HOME} />} />
                 <Route path={PublicRoutes.HOME} element={<Home />} />
-                <Route path={PublicRoutes.LOGIN} element={<Login />} />
+                <Route
+                  path={PublicRoutes.LOGIN}
+                  element={
+                    <Access>
+                      <Login />
+                    </Access>
+                  }
+                />
+                <Route
+                  path={PublicRoutes.REGISTER}
+                  element={
+                    <Access>
+                      <Register />
+                    </Access>
+                  }
+                />
                 <Route element={<AuthGuard privateValidation={true} />}>
                   <Route element={<RoleGuard {...tipoUser} />}>
                     {rutas.map((r) => {

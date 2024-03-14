@@ -5,11 +5,7 @@ import { PrivateRoutes } from "@/models";
 import { Navigate, Route } from "react-router-dom";
 import { RoutesWithNotFound } from "@/utilities";
 
-export type PrivateProps = {
-  // types...
-};
-
-const Private: React.FC<PrivateProps> = ({}) => {
+const Private: React.FC = () => {
   return (
     <RoutesWithNotFound>
       <Route path="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />

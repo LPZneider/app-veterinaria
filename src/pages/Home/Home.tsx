@@ -4,11 +4,7 @@ import { propsNavHome } from "@/utilities/navProps";
 import React from "react";
 import "./Home.css";
 
-export type HomeProps = {
-  // types...
-};
-
-const Home: React.FC<HomeProps> = ({}) => {
+const Home: React.FC = () => {
   return (
     <article className="home">
       <Navbar {...propsNavHome} />

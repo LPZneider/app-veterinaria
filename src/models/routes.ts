@@ -2,6 +2,7 @@ export const PublicRoutes = {
   LOGIN: "login",
   HOME: "home",
   REGISTER: "register",
+  ADAPTER: "adapter",
 };
 export const PrivateRoutes = {
   PRIVATE: "private",

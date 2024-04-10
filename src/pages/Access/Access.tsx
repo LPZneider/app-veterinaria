@@ -3,11 +3,11 @@ import { propsNavLogin } from "@/utilities/navProps";
 
 import React from "react";
 import "./Access.css";
-export type LoginProps = {
+export type LoginProp = {
   children?: React.ReactNode;
 };
 
-const Access: React.FC<LoginProps> = ({ children }: LoginProps) => {
+const Access: React.FC<LoginProp> = ({ children }: LoginProp) => {
   return (
     <article className="login home">
       <Navbar {...propsNavLogin} />

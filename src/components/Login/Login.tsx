@@ -1,6 +1,4 @@
-import { PrivateRoutes, PublicRoutes, Roles } from "@/models";
-import { AppStore } from "@/redux/store";
-import getLogin from "@/services/login.service";
+import { PublicRoutes } from "@/models";
 import { AccountCircle, KeyOff } from "@mui/icons-material";
 import PeopleIcon from "@mui/icons-material/People";
 import {
@@ -13,19 +11,22 @@ import {
   SelectChangeEvent,
   TextField,
 } from "@mui/material";
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoginAdapter from "../../adapters/LoginAdapter";
 import "./Login.css";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const userState = useSelector((store: AppStore) => store.user);
-  /* const dispatch = useDispatch(); */
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [idRol, setIdRol] = useState<string>("");
+  const [loginUser, setLoginUser] = useState(false);
+
+  const handleLoginUser = () => {
+    setLoginUser(!loginUser);
+  };
 
   const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -36,33 +37,6 @@ const Login: React.FC = () => {
   const handleIdRol = (e: SelectChangeEvent) => {
     setIdRol(e.target.value as string);
   };
-
-  const validarRutas = () => {
-    if (userState.rol) {
-      // Validación del usuario y redirección basada en el rol
-      switch (userState.rol) {
-        case Roles.CLIENTE:
-          navigate(`/${PrivateRoutes.HOME_PRIVATE_USER}`, { replace: true });
-          break;
-        case Roles.VETERINARIA:
-          navigate(`/${PrivateRoutes.HOME_PRIVATE_VETERINARIA}`, {
-            replace: true,
-          });
-          break;
-        case Roles.VETERINARIO:
-          navigate(`/${PrivateRoutes.HOME_PRIVATE_VETERINARIO}`, {
-            replace: true,
-          });
-          break;
-        default:
-          break;
-      }
-    }
-  };
-
-  useEffect(() => {
-    validarRutas();
-  }, [userState]);
 
   return (
     <form className="login-form">
@@ -125,20 +99,13 @@ const Login: React.FC = () => {
         >
           Registrar
         </Button>
-        <Button
-          color="secondary"
-          variant="contained"
-          onClick={() =>
-            getLogin({
-              email,
-              password,
-              idRol,
-            })
-          }
-        >
+        <Button color="secondary" variant="contained" onClick={handleLoginUser}>
           Enviar
         </Button>
       </div>
+      {loginUser && (
+        <LoginAdapter email={email} password={password} idRol={idRol} />
+      )}
     </form>
   );
 };

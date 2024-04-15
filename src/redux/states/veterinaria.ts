@@ -1,27 +1,30 @@
-import { Roles, UserInfo } from "@/models";
+import { Roles } from "@/models";
+import { VeterinariaInfo } from "@/models/veterinariaInfo";
 import { createSlice } from "@reduxjs/toolkit";
 
-export const EmptyUserState: UserInfo = {
-  name: "",
-  mascotas: [],
+export const EmptyUserState: VeterinariaInfo = {
+  nombre: "",
+  direccion: "",
+  usuarios: [],
+  veterinarios: [],
   rol: Roles.NO_REGISTRADO,
 };
 export const UserKey = "user";
 
-export const userSlice = createSlice({
+export const veterinariaSlice = createSlice({
   name: "user",
   initialState: localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user") as string)
     : EmptyUserState,
   reducers: {
-    login: (state, action) => {
+    loginVeterinaria: (state, action) => {
       if (state.rol === Roles.NO_REGISTRADO) {
         return action.payload;
       } else {
         return state;
       }
     },
-    logout: (state) => {
+    logoutVeterinaria: (state) => {
       if (state.rol !== Roles.NO_REGISTRADO) {
         return EmptyUserState;
       } else {
@@ -30,6 +33,6 @@ export const userSlice = createSlice({
     },
   },
 });
-export const { login, logout } = userSlice.actions;
+export const { loginVeterinaria, logoutVeterinaria } = veterinariaSlice.actions;
 
-export default userSlice.reducer;
+export default veterinariaSlice.reducer;

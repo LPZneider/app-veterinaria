@@ -15,30 +15,29 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
   const getApiData = async () =>
     await callEndpoint(getLogin({ email, password, idRol }));
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const adaptUser = (data: any) => {
     console.log(data);
-    const role =
-      idRol === "1"
-        ? Roles.CLIENTE
-        : idRol === "2"
-        ? Roles.VETERINARIO
-        : Roles.VETERINARIA;
-
+    let role;
     switch (idRol) {
       case "1":
+        role = Roles.CLIENTE;
         dispatch(
           login({ name: data.nombre, mascostas: data.mascotas, rol: role })
         );
         navigate(`/${PrivateRoutes.HOME_PRIVATE_USER}`, { replace: true });
         break;
+
       case "2":
+        role = Roles.VETERINARIO;
         dispatch(loginVet({ nombre: data.nombre, rol: role }));
         navigate(`/${PrivateRoutes.HOME_PRIVATE_VETERINARIO}`, {
           replace: true,
         });
         break;
-        break;
+
       case "3":
+        role = Roles.VETERINARIA;
         dispatch(
           loginVeterinaria({
             nombre: data.nombre,
@@ -53,6 +52,7 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
         });
         break;
     }
+    localStorage.setItem("user", JSON.stringify(data));
   };
 
   useAsync(getApiData, adaptUser, () => {});

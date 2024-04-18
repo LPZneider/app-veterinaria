@@ -23,7 +23,7 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
       case "1":
         role = Roles.CLIENTE;
         dispatch(
-          login({ name: data.nombre, mascostas: data.mascotas, rol: role })
+          login({ nombre: data.nombre, mascostas: data.mascotas, rol: role })
         );
         navigate(`/${PrivateRoutes.HOME_PRIVATE_USER}`, { replace: true });
         break;

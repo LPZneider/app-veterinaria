@@ -2,7 +2,7 @@ import { Roles, UserInfo } from "@/models";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const EmptyUserState: UserInfo = {
-  name: "",
+  nombre: "",
   mascotas: [],
   rol: Roles.NO_REGISTRADO,
 };

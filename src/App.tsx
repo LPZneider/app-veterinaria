@@ -9,7 +9,7 @@ import AuthGuard from "./guards/auth.guard";
 import { PrivateRoutes, PublicRoutes } from "./models";
 import { Access } from "./pages/Access";
 import { Home } from "./pages/Home";
-import { User } from "./pages/Private/User";
+import { Mascotas, User } from "./pages/Private/User";
 import { Veterinaria } from "./pages/Private/Veterinaria";
 import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
@@ -73,6 +73,10 @@ const rutas = [
   {
     element: <User />,
     path: PrivateRoutes.HOME_PRIVATE_USER,
+  },
+  {
+    element: <Mascotas />,
+    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA,
   },
   {
     element: <Veterinaria />,

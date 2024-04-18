@@ -8,11 +8,12 @@ import { AppStore } from "@/redux/store";
 
 const User: React.FC = () => {
   const userState = useSelector((store: AppStore) => store.user);
+
   return (
     <div className="user home">
       <Navbar {...propsNavUser} />
       <h1>
-        bienvenido {userState.name} a Mara sitio de veterinarias, servicios y
+        bienvenido {userState.nombre} a Mara sitio de veterinarias, servicios y
         productos
       </h1>
     </div>

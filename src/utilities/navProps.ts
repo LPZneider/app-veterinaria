@@ -1,4 +1,4 @@
-import { Pages, PropsNav, Settings } from "@/models";
+import { Pages, PrivateRoutes, PropsNav, Settings } from "@/models";
 
 const pages: Pages[] = [
   { title: "Productos", path: "/productos" },
@@ -25,6 +25,18 @@ export const propsNavUser: PropsNav = {
     { title: "Productos", path: "/productos" },
     { title: "Veterinarias", path: "/veterinarias" },
     { title: "Mis Mascotas", path: "/mascotas" },
+  ],
+  settings: [
+    { title: "Mi cuenta", path: "/mi-cuenta" },
+    { title: "configuracion", path: "/configuracion" },
+    { title: "Salir", path: "/home" },
+  ],
+};
+export const propsNavUserMascota: PropsNav = {
+  pages: [
+    { title: "Productos", path: "/productos" },
+    { title: "Veterinarias", path: "/veterinarias" },
+    { title: "Home", path: PrivateRoutes.HOME_PRIVATE_USER },
   ],
   settings: [
     { title: "Mi cuenta", path: "/mi-cuenta" },

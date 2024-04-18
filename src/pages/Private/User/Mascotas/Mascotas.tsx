@@ -14,8 +14,14 @@ const Mascotas: React.FC<MascotasProps> = ({}) => {
       <Navbar {...propsNavUserMascota} />
       <article className="container__mascota">
         <section className="item__mascota">
-          <h2 className="titulo__mascota">mara</h2>
-          <p className="raza__mascota">mestizo</p>
+          <section className="item__image__mascota">
+            <img src="/public/assets/dog1.svg" alt="icono mascota" />
+          </section>
+          <article className="info__mascota">
+            <h2 className="titulo__mascota">mara</h2>
+            <h3>mestizo</h3>
+          </article>
+          <button className="button__mascota">Ver mas</button>
         </section>
       </article>
     </div>

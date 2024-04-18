@@ -1,3 +1,58 @@
-.mascotas {
-  
+:root {
+  --color-1: #6e4940;
+  --color-2: #63ebbe;
+  --color-3: #5e6b67;
+}
+/* Estilos para el contenedor de cada mascota */
+.container__mascota {
+  max-width: 40%;
+  display: flex;
+  width: 90%;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+.container__mascota > :nth-child(3n + 1) {
+  background-color: var(--color-1);
+}
+.container__mascota > :nth-child(3n + 2) {
+  background-color: var(--color-2);
+}
+.container__mascota > :nth-child(3n + 3) {
+  background-color: var(--color-3);
+}
+
+/* Estilos para cada elemento de mascota */
+.item__mascota {
+  padding: 1rem;
+  flex: 1 1 50%;
+}
+
+/* Estilos para el título de la mascota */
+.titulo__mascota {
+}
+
+/* Estilos para la información de la raza */
+.info__mascota {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Estilos para el nombre de la raza */
+.info__mascota h3 {
+}
+
+/* Estilos para la información adicional de la mascota */
+.raza__mascota p {
+}
+
+/* Estilos para la fecha de la mascota */
+.fecha__mascota {
+}
+
+@media (min-width: 720px) {
+  .item__mascota {
+    flex: 1 1 30%;
+  }
 }

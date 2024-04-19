@@ -1,11 +1,12 @@
 :root {
-  --color-1: #6e4940;
-  --color-2: #63ebbe;
-  --color-3: #5e6b67;
+  --color-1: #6e494030;
+  --color-2: #63ebbe70;
+  --color-3: #5e6b6770;
 }
+
 /* Estilos para el contenedor de cada mascota */
 .container__mascota {
-  max-width: 40%;
+  font-family: "Dancing Script", cursive;
   display: flex;
   width: 90%;
   flex-flow: row wrap;
@@ -27,10 +28,18 @@
 .item__mascota {
   padding: 1rem;
   flex: 1 1 50%;
+  border-radius: 0.51rem;
+  position: relative;
+  overflow-y: hidden;
 }
 
 /* Estilos para el título de la mascota */
 .titulo__mascota {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  width: 50%;
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
 }
 
 /* Estilos para la información de la raza */
@@ -41,18 +50,35 @@
 
 /* Estilos para el nombre de la raza */
 .info__mascota h3 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  width: 45%;
+  text-align: end;
 }
 
-/* Estilos para la información adicional de la mascota */
-.raza__mascota p {
+.button__mascota {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 1.2rem;
+  background: inherit;
+  box-shadow: 1px 1px 1px #14141441;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  bottom: 2.2vh;
 }
 
-/* Estilos para la fecha de la mascota */
-.fecha__mascota {
+.button__mascota:hover {
+  background: #0000000f;
+  box-shadow: inset 1px 1px 1px #14141441;
 }
 
 @media (min-width: 720px) {
+  .container__mascota {
+    max-width: 80%;
+  }
   .item__mascota {
+    max-width: 30%;
     flex: 1 1 30%;
   }
 }

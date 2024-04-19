@@ -6,7 +6,6 @@ const pages: Pages[] = [
   { title: "Acceder", path: "/login" },
 ];
 const settings: Settings[] = [{ title: "Acceder", path: "/login" }];
-
 const pagesLogin: Pages[] = [
   { title: "Productos", path: "/productos" },
   { title: "Veterinarias", path: "/veterinarias" },
@@ -36,7 +35,7 @@ export const propsNavUserMascota: PropsNav = {
   pages: [
     { title: "Productos", path: "/productos" },
     { title: "Veterinarias", path: "/veterinarias" },
-    { title: "Home", path: PrivateRoutes.HOME_PRIVATE_USER },
+    { title: "Home", path: `/${PrivateRoutes.HOME_PRIVATE_USER}` },
   ],
   settings: [
     { title: "Mi cuenta", path: "/mi-cuenta" },

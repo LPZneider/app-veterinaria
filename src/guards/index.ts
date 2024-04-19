@@ -1,2 +1,2 @@
-export { default as AuthGuard } from "./auth.guard";
-export { default as RoleGuard } from "./rol.guard";
+export { default as auth.guard } from './auth.guard';
+export { default as login.guard } from './login.guard';

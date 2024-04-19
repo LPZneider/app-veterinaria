@@ -13,11 +13,12 @@ import { Mascotas, User } from "./pages/Private/User";
 import { Veterinaria } from "./pages/Private/Veterinaria";
 import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
+import LoginGuard from "./guards/login.guard";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#22303d", // Color principal
+      main: "#22303d",
     },
     secondary: {
       main: "#5f362c",
@@ -37,14 +38,16 @@ function App() {
                   element={<Navigate to={PrivateRoutes.HOME_PRIVATE_USER} />}
                 />
                 <Route path={PublicRoutes.HOME} element={<Home />} />
-                <Route
-                  path={PublicRoutes.LOGIN}
-                  element={
-                    <Access>
-                      <Login />
-                    </Access>
-                  }
-                />
+                <Route element={<LoginGuard />}>
+                  <Route
+                    path={PublicRoutes.LOGIN}
+                    element={
+                      <Access>
+                        <Login />
+                      </Access>
+                    }
+                  />
+                </Route>
                 <Route
                   path={PublicRoutes.REGISTER}
                   element={

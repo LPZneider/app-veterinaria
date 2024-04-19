@@ -1,20 +1,22 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import PetsIcon from "@mui/icons-material/Pets";
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { PropsNav } from "../../models/navbar";
 import logo from "/public/assets/logo.svg";
 import user from "/public/assets/user.svg";
+
 function Navbar({ pages, settings }: PropsNav) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -67,8 +69,8 @@ function Navbar({ pages, settings }: PropsNav) {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/home"
+            component={Link}
+            to="/home"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -113,7 +115,11 @@ function Navbar({ pages, settings }: PropsNav) {
             >
               {pages.map((page) => (
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" component="a" href={page.path}>
+                  <Typography
+                    textAlign="center"
+                    component={Link}
+                    to={page.path}
+                  >
                     {page.title}
                   </Typography>
                 </MenuItem>
@@ -129,8 +135,8 @@ function Navbar({ pages, settings }: PropsNav) {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/home"
+            component={Link}
+            to="/home"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -148,8 +154,8 @@ function Navbar({ pages, settings }: PropsNav) {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Typography
-                component="a"
-                href={page.path}
+                component={Link}
+                to={page.path}
                 key={page.title}
                 onClick={handleCloseNavMenu}
                 style={{ textDecoration: "none" }}
@@ -200,9 +206,9 @@ function Navbar({ pages, settings }: PropsNav) {
                 <MenuItem key={setting.title} onClick={handleCloseUserMenu}>
                   <Typography
                     textAlign="center"
-                    component="a"
+                    component={Link}
                     style={{ textDecoration: "none" }}
-                    href={setting.path}
+                    to={setting.path}
                     sx={{
                       color: "black",
                       display: "block",

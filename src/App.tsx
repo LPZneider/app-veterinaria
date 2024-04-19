@@ -5,7 +5,7 @@ import { BrowserRouter, Navigate, Route } from "react-router-dom";
 import "./App.css";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
-import AuthGuard from "./guards/auth.guard";
+import { UserGuard, VetGuard, VeterinariaGuard } from "./guards";
 import { PrivateRoutes, PublicRoutes } from "./models";
 import { Access } from "./pages/Access";
 import { Home } from "./pages/Home";
@@ -56,8 +56,22 @@ function App() {
                     </Access>
                   }
                 />
-                <Route element={<AuthGuard />}>
-                  {rutas.map((r) => {
+                <Route element={<UserGuard />}>
+                  {rutasUser.map((r) => {
+                    return (
+                      <Route path={r.path} element={r.element} key={r.path} />
+                    );
+                  })}
+                </Route>
+                <Route element={<VetGuard />}>
+                  {rutasVet.map((r) => {
+                    return (
+                      <Route path={r.path} element={r.element} key={r.path} />
+                    );
+                  })}
+                </Route>
+                <Route element={<VeterinariaGuard />}>
+                  {rutasVeterinaria.map((r) => {
                     return (
                       <Route path={r.path} element={r.element} key={r.path} />
                     );
@@ -72,7 +86,7 @@ function App() {
   );
 }
 
-const rutas = [
+const rutasUser = [
   {
     element: <User />,
     path: PrivateRoutes.HOME_PRIVATE_USER,
@@ -81,10 +95,14 @@ const rutas = [
     element: <Mascotas />,
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA,
   },
+];
+const rutasVeterinaria = [
   {
     element: <Veterinaria />,
     path: PrivateRoutes.HOME_PRIVATE_VETERINARIA,
   },
+];
+const rutasVet = [
   {
     element: <>HOME_PRIVATE_VETERINARIO</>,
     path: PrivateRoutes.HOME_PRIVATE_VETERINARIO,

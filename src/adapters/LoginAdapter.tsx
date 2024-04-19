@@ -26,6 +26,7 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
           login({ nombre: data.nombre, mascostas: data.mascotas, rol: role })
         );
         navigate(`/${PrivateRoutes.HOME_PRIVATE_USER}`, { replace: true });
+        localStorage.setItem("user", JSON.stringify(data));
         break;
 
       case "2":
@@ -34,6 +35,7 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
         navigate(`/${PrivateRoutes.HOME_PRIVATE_VETERINARIO}`, {
           replace: true,
         });
+        localStorage.setItem("veterinario", JSON.stringify(data));
         break;
 
       case "3":
@@ -50,9 +52,10 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
         navigate(`/${PrivateRoutes.HOME_PRIVATE_VETERINARIA}`, {
           replace: true,
         });
+        localStorage.setItem("veterinaria", JSON.stringify(data));
+
         break;
     }
-    localStorage.setItem("user", JSON.stringify(data));
   };
 
   useAsync(getApiData, adaptUser, () => {});

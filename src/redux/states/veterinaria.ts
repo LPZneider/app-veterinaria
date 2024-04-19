@@ -13,8 +13,8 @@ export const UserKey = "user";
 
 export const veterinariaSlice = createSlice({
   name: "user",
-  initialState: localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user") as string)
+  initialState: localStorage.getItem("veterinaria")
+    ? JSON.parse(localStorage.getItem("veterinaria") as string)
     : EmptyUserState,
   reducers: {
     loginVeterinaria: (state, action) => {

@@ -47,15 +47,15 @@ function App() {
                       </Access>
                     }
                   />
+                  <Route
+                    path={PublicRoutes.REGISTER}
+                    element={
+                      <Access>
+                        <Register />
+                      </Access>
+                    }
+                  />
                 </Route>
-                <Route
-                  path={PublicRoutes.REGISTER}
-                  element={
-                    <Access>
-                      <Register />
-                    </Access>
-                  }
-                />
                 <Route element={<UserGuard />}>
                   {rutasUser.map((r) => {
                     return (

@@ -59,6 +59,14 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
   };
 
   useAsync(getApiData, adaptUser, () => {});
-  return <p>{loading ? "Ingresando" : ""}</p>;
+  return (
+    <p>
+      {loading ? (
+        <img src="/public/assets/loader.svg" alt="loading" width={30} />
+      ) : (
+        ""
+      )}
+    </p>
+  );
 };
 export default LoginAdapter;

@@ -1,4 +1,5 @@
 export * from "./axios-call.model";
+export * from "./createMascota";
 export * from "./loginProps";
 export * from "./mascota.model";
 export * from "./navbar";

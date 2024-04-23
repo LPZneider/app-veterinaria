@@ -23,7 +23,12 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
       case "1":
         role = Roles.CLIENTE;
         dispatch(
-          login({ nombre: data.nombre, mascostas: data.mascotas, rol: role })
+          login({
+            id: data.id,
+            nombre: data.nombre,
+            mascostas: data.mascotas,
+            rol: role,
+          })
         );
         navigate(`/${PrivateRoutes.HOME_PRIVATE_USER}`, { replace: true });
         localStorage.setItem("user", JSON.stringify(data));

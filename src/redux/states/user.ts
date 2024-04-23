@@ -2,6 +2,7 @@ import { Roles, UserInfo } from "@/models";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const EmptyUserState: UserInfo = {
+  id: 0,
   nombre: "",
   mascotas: [],
   rol: Roles.NO_REGISTRADO,
@@ -21,6 +22,10 @@ export const userSlice = createSlice({
         return state;
       }
     },
+    update: (state, action) => {
+      console.log(action.payload, state);
+      return action.payload;
+    },
     logout: (state) => {
       if (state.rol !== Roles.NO_REGISTRADO) {
         return EmptyUserState;
@@ -30,6 +35,6 @@ export const userSlice = createSlice({
     },
   },
 });
-export const { login, logout } = userSlice.actions;
+export const { login, update, logout } = userSlice.actions;
 
 export default userSlice.reducer;

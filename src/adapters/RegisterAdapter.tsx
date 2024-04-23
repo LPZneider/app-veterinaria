@@ -3,9 +3,8 @@ import { PublicRoutes, RegisterProps } from "@/models";
 import getRegister from "@/services/register.service";
 import { useNavigate } from "react-router-dom";
 
-const LoginAdapter = ({ nombre, email, password, idRol }: RegisterProps) => {
+const RegisterAdapter = ({ nombre, email, password, idRol }: RegisterProps) => {
   const navigate = useNavigate();
-
   const { loading, callEndpoint } = useFetchAndLoad();
   const getApiData = async () =>
     await callEndpoint(getRegister({ nombre, email, password, idRol }));
@@ -27,4 +26,4 @@ const LoginAdapter = ({ nombre, email, password, idRol }: RegisterProps) => {
     </p>
   );
 };
-export default LoginAdapter;
+export default RegisterAdapter;

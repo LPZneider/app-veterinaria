@@ -16,7 +16,10 @@ const Mascotas: React.FC = () => {
           <section>no hay mascotas</section>
         ) : (
           userState.mascotas.map((mascota) => (
-            <section className="item__mascota">
+            <section
+              key={mascota.nombre + mascota.fechaNacimiento}
+              className="item__mascota"
+            >
               <section className="item__image__mascota">
                 <img
                   src={`/public/assets/dog${

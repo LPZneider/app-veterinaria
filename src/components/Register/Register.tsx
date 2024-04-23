@@ -25,7 +25,7 @@ const Register: React.FC = () => {
   const handleIdRol = (e: SelectChangeEvent) => {
     setIdRol(e.target.value as string);
   };
-  const handleLoginUser = () => {
+  const handleRegister = () => {
     const erroresTemp = [];
 
     // Validación de nombre
@@ -108,7 +108,7 @@ const Register: React.FC = () => {
           <Button
             color="secondary"
             variant="contained"
-            onClick={handleLoginUser}
+            onClick={handleRegister}
           >
             Enviar
           </Button>

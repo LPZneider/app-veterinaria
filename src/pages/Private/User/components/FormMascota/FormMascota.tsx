@@ -1,22 +1,22 @@
 "use client";
 import { Navbar } from "@/components/Navbar";
-import { Mascota } from "@/models";
+import { useAsync, useFetchAndLoad } from "@/hooks";
+import { Mascota, Raza } from "@/models";
+import getRazas from "@/services/razas.service";
 import { propsNavUser } from "@/utilities";
 import {
-  Box,
   Button,
   FormControl,
-  FormHelperText,
   InputLabel,
   MenuItem,
   Select,
   TextField,
 } from "@mui/material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import React, { useState } from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import React, { useState } from "react";
 import "./FormMascota.css";
 export type FormMascotaProps = {
   // types...
@@ -43,6 +43,16 @@ function Label() {
 
 const FormMascota: React.FC<FormMascotaProps> = () => {
   const [mascota, setMascota] = useState<Mascota>(emptyMascota);
+  const [razas, setRazas] = useState<Raza[]>([]);
+  const { loading, callEndpoint } = useFetchAndLoad();
+  const getApiData = async () => await callEndpoint(getRazas());
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const adaptUser = (data: any) => {
+    setRazas([...data]);
+  };
+
+  useAsync(getApiData, adaptUser, () => {});
   return (
     <div className=" home">
       <Navbar {...propsNavUser} />
@@ -53,6 +63,13 @@ const FormMascota: React.FC<FormMascotaProps> = () => {
             label="Nombre"
             variant="outlined"
             color="secondary"
+            value={mascota.nombre}
+            onChange={({ target }) => {
+              setMascota((oldState) => ({
+                ...oldState,
+                nombre: target.value as string,
+              }));
+            }}
           />
           <FormControl sx={{ m: 0, minWidth: 120 }}>
             <InputLabel id="demo-simple-select-helper-label">Raza</InputLabel>
@@ -60,16 +77,31 @@ const FormMascota: React.FC<FormMascotaProps> = () => {
               color="secondary"
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
-              // value={age}
+              value={mascota.raza}
               label="Raza"
-              // onChange={handleChange}
+              onChange={({ target }) => {
+                setMascota((oldState) => ({
+                  ...oldState,
+                  raza: target.value as Raza,
+                }));
+              }}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {loading ? (
+                <MenuItem value="">
+                  <em>Cargando Razas...</em>
+                </MenuItem>
+              ) : (
+                razas.map((raza) => {
+                  return (
+                    <MenuItem value={JSON.stringify(raza)}>
+                      {raza.nombre}
+                    </MenuItem>
+                  );
+                })
+              )}
             </Select>
           </FormControl>
           <LocalizationProvider dateAdapter={AdapterDayjs}>

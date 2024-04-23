@@ -5,6 +5,7 @@ export * from "./Private/User/components/Mascotas";
 export * from "./Private/User/components";
 export * from "./Private/User";
 export * from "./Private/Veterinaria";
+export * from "./Private/Veterinario";
 export * from "./Private";
 export * from "./Productos";
 export * from "./Veterinarias";

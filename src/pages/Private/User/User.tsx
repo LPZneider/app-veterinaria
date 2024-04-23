@@ -10,12 +10,17 @@ const User: React.FC = () => {
   const userState = useSelector((store: AppStore) => store.user);
 
   return (
-    <div className="user home">
+    <div className=" home">
       <Navbar {...propsNavUser} />
-      <h1>
-        bienvenido {userState.nombre} a Mara sitio de veterinarias, servicios y
-        productos
-      </h1>
+      <section className="user">
+        <h1 className="titulo__user">
+          bienvenido {userState.nombre} a Mara sitio de veterinarias, servicios
+          y productos
+        </h1>
+        <div className="div-emma">
+          <img src="/public/assets/emma.svg" alt="luna" className="emma" />
+        </div>
+      </section>
     </div>
   );
 };

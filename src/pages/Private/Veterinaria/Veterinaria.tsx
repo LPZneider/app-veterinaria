@@ -1,17 +1,24 @@
 "use client";
 import { Navbar } from "@/components/Navbar";
 import { AppStore } from "@/redux/store";
-import { propsNavHome } from "@/utilities";
+import { propsNavVeterinaria } from "@/utilities";
 import React from "react";
 import { useSelector } from "react-redux";
 import "./Veterinaria.css";
 
 const Veterinaria: React.FC = () => {
-  const userState = useSelector((store: AppStore) => store.user);
+  const userState = useSelector((store: AppStore) => store.veterinaria);
   return (
     <div className="veterinaria home">
-      <Navbar {...propsNavHome} />
-      <h1>Bienvenido Veterinaria {userState.nombre}</h1>
+      <Navbar {...propsNavVeterinaria} />
+      <section className="user">
+        <h1 className="titulo__user">
+          Bienvenido {userState.nombre} a mara lugar de clientes y ventas
+        </h1>
+        <div className="div-emma">
+          <img src="/public/assets/vet.svg" alt="luna" className="emma" />
+        </div>
+      </section>
     </div>
   );
 };

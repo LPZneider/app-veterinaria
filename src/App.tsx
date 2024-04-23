@@ -6,14 +6,15 @@ import "./App.css";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { UserGuard, VetGuard, VeterinariaGuard } from "./guards";
+import LoginGuard from "./guards/login.guard";
 import { PrivateRoutes, PublicRoutes } from "./models";
+import { Productos, Veterinarias, Veterinario } from "./pages";
 import { Access } from "./pages/Access";
 import { Home } from "./pages/Home";
-import { Mascotas, User } from "./pages/Private/User";
+import { FormMascota, Mascotas, User } from "./pages/Private/User";
 import { Veterinaria } from "./pages/Private/Veterinaria";
 import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
-import LoginGuard from "./guards/login.guard";
 
 const theme = createTheme({
   palette: {
@@ -37,6 +38,11 @@ function App() {
                   path="/"
                   element={<Navigate to={PrivateRoutes.HOME_PRIVATE_USER} />}
                 />
+                <Route
+                  path={PublicRoutes.VETERINARIAS}
+                  element={<Veterinarias />}
+                />
+                <Route path={PublicRoutes.PRODUCTOS} element={<Productos />} />
                 <Route path={PublicRoutes.HOME} element={<Home />} />
                 <Route element={<LoginGuard />}>
                   <Route
@@ -95,6 +101,10 @@ const rutasUser = [
     element: <Mascotas />,
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA,
   },
+  {
+    element: <FormMascota />,
+    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM,
+  },
 ];
 const rutasVeterinaria = [
   {
@@ -104,7 +114,7 @@ const rutasVeterinaria = [
 ];
 const rutasVet = [
   {
-    element: <>HOME_PRIVATE_VETERINARIO</>,
+    element: <Veterinario />,
     path: PrivateRoutes.HOME_PRIVATE_VETERINARIO,
   },
 ];

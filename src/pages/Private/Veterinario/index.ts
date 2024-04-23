@@ -1,0 +1,1 @@
+export { default as Veterinario } from './Veterinario';

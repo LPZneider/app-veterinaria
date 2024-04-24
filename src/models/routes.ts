@@ -10,6 +10,7 @@ export const PrivateRoutes = {
   DASHBOARD: "dashboard",
   HOME_PRIVATE_USER: "usuario",
   HOME_PRIVATE_USER_MASCOTA: "mascotas",
+  HOME_PRIVATE_USER_MASCOTA_DETALLE: "/mascotas/:mascotaId",
   HOME_PRIVATE_USER_MASCOTA_FORM: "mascota-form",
   HOME_PRIVATE_VETERINARIA: "veterinaria",
   HOME_PRIVATE_VETERINARIO: "veterinario",

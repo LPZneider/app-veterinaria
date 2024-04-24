@@ -1,0 +1,1 @@
+export { default as MascotaDetalle } from './MascotaDetalle';

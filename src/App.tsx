@@ -15,6 +15,7 @@ import { FormMascota, Mascotas, User } from "./pages/Private/User";
 import { Veterinaria } from "./pages/Private/Veterinaria";
 import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
+import { MascotaDetalle } from "./pages/Private/User/components/MascotaDetalle";
 
 const theme = createTheme({
   palette: {
@@ -100,6 +101,10 @@ const rutasUser = [
   {
     element: <Mascotas />,
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA,
+  },
+  {
+    element: <MascotaDetalle />,
+    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_DETALLE,
   },
   {
     element: <FormMascota />,

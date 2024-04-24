@@ -5,8 +5,10 @@ import { propsNavUserMascota } from "@/utilities";
 import React from "react";
 import { useSelector } from "react-redux";
 import "./Mascotas.css";
+import { useNavigate } from "react-router-dom";
 
 const Mascotas: React.FC = () => {
+  const navigate = useNavigate();
   const userState = useSelector((store: AppStore) => store.user);
   return (
     <div className=" home">
@@ -32,7 +34,12 @@ const Mascotas: React.FC = () => {
                 <h2 className="titulo__mascota">{mascota.nombre}</h2>
                 <h3>{mascota.raza.nombre}</h3>
               </article>
-              <button className="button__mascota">Ver mas</button>
+              <button
+                className="button__mascota"
+                onClick={() => navigate(`/mascotas/${mascota.id}`)}
+              >
+                Ver mas
+              </button>
             </section>
           ))
         )}

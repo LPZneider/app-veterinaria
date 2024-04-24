@@ -52,9 +52,15 @@
   }
   /* Clases para la sección de información de la mascota */
   .mascota__informacion {
+    text-align: start;
   }
   .mascota__informacion h2 {
+    padding: 0 1rem;
   }
   .mascota__informacion p {
+    border-radius: 0.5rem;
+    text-align: end;
+    padding-right: 1rem;
+    border-bottom-left-radius: red solid 1px;
   }
 }

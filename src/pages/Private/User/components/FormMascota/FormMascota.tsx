@@ -69,13 +69,18 @@ const FormMascota: React.FC = () => {
       id: mascotaEdit.id,
       nombre: mascotaEdit.nombre,
       raza: mascotaEdit.raza,
-      fechaNacimiento: ` ${mascotaEdit.fechaNacimiento} `,
+      fechaNacimiento: `${dayjs(
+        mascotaEdit.fechaNacimiento,
+        "MM-DD-YYYY"
+      ).format("YYYY-MM-DD")}`,
       propietario: {
         id: 0,
       },
     };
   }
-  const formattedFechaNacimiento = dayjs(mascotaEdit?.fechaNacimiento);
+  const formattedFechaNacimiento = mascotaEdit
+    ? dayjs(mascotaEdit.fechaNacimiento, "MM-DD-YYYY")
+    : null;
 
   const [mascota, setMascota] = useState(mascotaPresent);
   const [razas, setRazas] = useState<Raza[]>([]);
@@ -120,6 +125,8 @@ const FormMascota: React.FC = () => {
       }
     }
   };
+
+  console.log(mascota);
   return (
     <div className=" home">
       <Navbar {...propsNavUser} />

@@ -34,10 +34,13 @@
 }
 @media (min-width: 700px) {
   .mascota__detalle {
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
     flex-flow: row wrap;
   }
   .mascota__detalle > * {
-    flex: 1 1 30%;
+    flex: 1 0 32%;
   }
 
   .buttons {

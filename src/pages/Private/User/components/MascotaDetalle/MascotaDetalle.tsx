@@ -20,7 +20,9 @@ const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
   const mascota = useSelector((store: AppStore) =>
     store.user.mascotas.find((m) => m.id === mascotaId)
   );
-  const fechaNacimiento = new Date(mascota?.fechaNacimiento ?? "");
+  const fechaNacimiento = mascota?.fechaNacimiento
+    ? new Date(mascota.fechaNacimiento)
+    : null;
 
   if (!mascota) {
     return <p>Mascota no encontrada</p>;

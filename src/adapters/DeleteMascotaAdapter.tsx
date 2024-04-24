@@ -7,13 +7,14 @@ import deleteMascota from "@/services/mascotaDelete.service";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const DeleteMascotaAdapter = ({ id }: DeleteMascota) => {
+const DeleteMascotaAdapter = ({ id, idPropietario }: DeleteMascota) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((store: AppStore) => store.user);
 
   const { loading, callEndpoint } = useFetchAndLoad();
-  const getApiData = async () => await callEndpoint(deleteMascota({ id }));
+  const getApiData = async () =>
+    await callEndpoint(deleteMascota({ id, idPropietario }));
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const adaptUser = (data: any) => {

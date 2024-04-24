@@ -1,19 +1,20 @@
 "use client";
+import DeleteMascotaAdapter from "@/adapters/DeleteMascotaAdapter";
 import { Navbar } from "@/components/Navbar";
 import { AppStore } from "@/redux/store";
 import { propsNavUser } from "@/utilities";
+import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import "./MascotaDetalle.css";
-import { Button } from "@mui/material";
-import DeleteMascotaAdapter from "@/adapters/DeleteMascotaAdapter";
 
 export type MascotaDetalleProps = {
   // types...
 };
 
 const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
+  const userState = useSelector((store: AppStore) => store.user);
   const navigate = useNavigate();
   const params = useParams();
   const mascotaIdString = params.mascotaId;
@@ -94,7 +95,12 @@ const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
                 </div>
               </div>
             )}
-            {deleteM && <DeleteMascotaAdapter id={mascota.id} />}
+            {deleteM && (
+              <DeleteMascotaAdapter
+                id={mascota.id}
+                idPropietario={userState.id}
+              />
+            )}
           </div>
         </section>
         <section className="mascota__detalle__imagen">

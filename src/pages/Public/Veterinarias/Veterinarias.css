@@ -1,0 +1,23 @@
+.container__veterinaria {
+  font-family: "Dancing Script", cursive;
+  display: flex;
+  width: 90%;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+:root {
+  --color-1: #6e494030;
+  --color-2: #30e66470;
+  --color-3: #5e6b6770;
+}
+.container__veterinaria > :nth-child(3n + 1) {
+  background-color: var(--color-1);
+}
+.container__veterinaria > :nth-child(3n + 2) {
+  background-color: var(--color-2);
+}
+.container__veterinaria > :nth-child(3n + 3) {
+  background-color: var(--color-3);
+}

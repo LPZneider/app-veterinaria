@@ -9,8 +9,8 @@ import { UserGuard, VetGuard, VeterinariaGuard } from "./guards";
 import LoginGuard from "./guards/login.guard";
 import { PrivateRoutes, PublicRoutes } from "./models";
 import { Productos, Veterinarias, Veterinario } from "./pages";
-import { Access } from "./pages/Access";
-import { Home } from "./pages/Home";
+import { Access } from "./pages/Public/Access";
+import { Home } from "./pages/Public/Home";
 import { FormMascota, Mascotas, User } from "./pages/Private/User";
 import { Veterinaria } from "./pages/Private/Veterinaria";
 import store from "./redux/store";
@@ -109,6 +109,14 @@ const rutasUser = [
   {
     element: <FormMascota />,
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM,
+  },
+  {
+    element: <FormMascota />,
+    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
+  },
+  {
+    element: <FormMascota />,
+    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
   },
   {
     element: <FormMascota />,

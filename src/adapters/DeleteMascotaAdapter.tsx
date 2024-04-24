@@ -1,28 +1,19 @@
 import { useAsync, useFetchAndLoad } from "@/hooks";
 import { UserInfo } from "@/models";
-import { EditMascota } from "@/models/editMascota";
+import { DeleteMascota } from "@/models/deleteMascota";
 import { update } from "@/redux/states/user";
 import { AppStore } from "@/redux/store";
-import editMascota from "@/services/mascotaEdit.service";
+import deleteMascota from "@/services/mascotaDelete.service";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const EditMascotaAdapter = ({
-  id,
-  nombre,
-  idRaza,
-  idPropietario,
-  fechaNacimiento,
-}: EditMascota) => {
+const DeleteMascotaAdapter = ({ id }: DeleteMascota) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((store: AppStore) => store.user);
 
   const { loading, callEndpoint } = useFetchAndLoad();
-  const getApiData = async () =>
-    await callEndpoint(
-      editMascota({ id, nombre, idRaza, idPropietario, fechaNacimiento })
-    );
+  const getApiData = async () => await callEndpoint(deleteMascota({ id }));
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const adaptUser = (data: any) => {
@@ -33,7 +24,7 @@ const EditMascotaAdapter = ({
     };
     dispatch(update(updatedUserState));
 
-    navigate(`/mascotas/${id}`, { replace: true });
+    navigate(`/mascotas`, { replace: true });
 
     const datalocal = localStorage.getItem("user");
     const datalocalobj = datalocal
@@ -54,4 +45,4 @@ const EditMascotaAdapter = ({
     </p>
   );
 };
-export default EditMascotaAdapter;
+export default DeleteMascotaAdapter;

@@ -32,6 +32,44 @@
   padding-bottom: 1rem;
   border-bottom: #00000044 solid 1px;
 }
+.dialog__remove {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dialog__remove__mascota {
+  background-color: #ffffff; /* Color de fondo */
+  border: 1px solid #cccccc; /* Borde */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  max-width: 300px; /* Ancho máximo del diálogo */
+  text-align: center; /* Alineación del texto */
+  position: absolute;
+  top: 1vh;
+}
+
+.dialog__remove__mascota p {
+  margin-bottom: 20px; /* Espaciado inferior para el texto */
+}
+
+.dialog__remove__mascota button {
+  margin: 0 10px; /* Espaciado entre botones */
+}
+
+.dialog__remove__mascota button:hover {
+  filter: brightness(0.9); /* Efecto de atenuación al pasar el mouse */
+}
+
+.dialog__remove__mascota button:active {
+  transform: translateY(1px); /* Efecto de presión al hacer clic */
+}
 @media (min-width: 700px) {
   .mascota__detalle {
     min-height: 80vh;
@@ -42,15 +80,6 @@
   .mascota__detalle > * {
     flex: 1 0 32%;
   }
-
-  .buttons {
-  }
-  /* Clases para la sección de presentación de la mascota */
-  .mascota__presentacion button {
-  }
-  .mascota__detalle__imagen {
-  }
-  /* Clases para la sección de información de la mascota */
   .mascota__informacion {
     text-align: start;
   }

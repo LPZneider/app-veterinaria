@@ -2,11 +2,12 @@
 import { Navbar } from "@/components/Navbar";
 import { AppStore } from "@/redux/store";
 import { propsNavUser } from "@/utilities";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import "./MascotaDetalle.css";
 import { Button } from "@mui/material";
+import DeleteMascotaAdapter from "@/adapters/DeleteMascotaAdapter";
 
 export type MascotaDetalleProps = {
   // types...
@@ -17,6 +18,21 @@ const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
   const params = useParams();
   const mascotaIdString = params.mascotaId;
   const mascotaId = parseInt(mascotaIdString ?? "0");
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [deleteM, setDeleteM] = useState(false);
+
+  const handleDelete = () => {
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmDelete = () => {
+    setDeleteM(true);
+    setShowConfirmDialog(false);
+  };
+
+  const handleCancelDelete = () => {
+    setShowConfirmDialog(false);
+  };
 
   const mascota = useSelector((store: AppStore) =>
     store.user.mascotas.find((m) => m.id === mascotaId)
@@ -49,9 +65,36 @@ const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
             >
               Editar
             </Button>
-            <Button className="Button" variant="outlined" color="secondary">
+            <Button
+              className="Button"
+              variant="outlined"
+              color="secondary"
+              onClick={handleDelete}
+            >
               Eliminar
             </Button>
+            {showConfirmDialog && (
+              <div className="dialog__remove">
+                <div className="dialog__remove__mascota">
+                  <p>¿Estás seguro de eliminar la mascota?</p>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleConfirmDelete}
+                  >
+                    Sí
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleCancelDelete}
+                  >
+                    No
+                  </Button>
+                </div>
+              </div>
+            )}
+            {deleteM && <DeleteMascotaAdapter id={mascota.id} />}
           </div>
         </section>
         <section className="mascota__detalle__imagen">

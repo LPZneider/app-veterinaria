@@ -4,7 +4,7 @@ import { AppStore } from "@/redux/store";
 import { propsNavUser } from "@/utilities";
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./MascotaDetalle.css";
 import { Button } from "@mui/material";
 
@@ -13,6 +13,7 @@ export type MascotaDetalleProps = {
 };
 
 const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const mascotaIdString = params.mascotaId;
   const mascotaId = parseInt(mascotaIdString ?? "0");
@@ -40,7 +41,12 @@ const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
             este vasto tapiz de vida.
           </p>
           <div className="buttons">
-            <Button className="Button" variant="contained" color="secondary">
+            <Button
+              className="Button"
+              variant="contained"
+              color="secondary"
+              onClick={() => navigate(`/mascota-form/${mascota.id}`)}
+            >
               Editar
             </Button>
             <Button className="Button" variant="outlined" color="secondary">

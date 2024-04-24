@@ -1,4 +1,6 @@
 "use client";
+import { EditMascotaAdapter } from "@/adapters";
+import CreateMascotaAdapter from "@/adapters/CreateMascotaAdapter";
 import { Navbar } from "@/components/Navbar";
 import { useAsync, useFetchAndLoad } from "@/hooks";
 import { Raza } from "@/models";
@@ -16,24 +18,22 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import { Dayjs } from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import React, { useState } from "react";
-import "./FormMascota.css";
 import { useSelector } from "react-redux";
 import { AppStore } from "../../../../../redux/store";
-import CreateMascotaAdapter from "@/adapters/CreateMascotaAdapter";
+import "./FormMascota.css";
+import { useParams } from "react-router-dom";
 export type FormMascotaProps = {
-  // types...
-};
-const emptyMascota = {
-  fechaNacimiento: "",
-  nombre: "",
+  id?: number;
+  fechaNacimiento: string;
+  nombre: string;
   raza: {
-    id: 0,
-  },
+    id: number;
+  };
   propietario: {
-    id: 0,
-  },
+    id: number;
+  };
 };
 
 function Label() {
@@ -45,11 +45,46 @@ function Label() {
   );
 }
 
-const FormMascota: React.FC<FormMascotaProps> = () => {
-  const [mascota, setMascota] = useState(emptyMascota);
+const FormMascota: React.FC = () => {
+  const params = useParams();
+  const mascotaIdString = params.mascotaId;
+  const mascotaId = parseInt(mascotaIdString ?? "0");
+
+  const mascotaEdit = useSelector((store: AppStore) =>
+    store.user.mascotas.find((m) => m.id === mascotaId)
+  );
+  let mascotaPresent: FormMascotaProps = {
+    fechaNacimiento: "",
+    nombre: "",
+    raza: {
+      id: 0,
+    },
+    propietario: {
+      id: 0,
+    },
+  };
+
+  if (mascotaEdit) {
+    mascotaPresent = {
+      id: mascotaEdit.id,
+      nombre: mascotaEdit.nombre,
+      raza: mascotaEdit.raza,
+      fechaNacimiento: ` ${mascotaEdit.fechaNacimiento} `,
+      propietario: {
+        id: 0,
+      },
+    };
+  }
+  const formattedFechaNacimiento = dayjs(mascotaEdit?.fechaNacimiento);
+
+  const [mascota, setMascota] = useState(mascotaPresent);
   const [razas, setRazas] = useState<Raza[]>([]);
-  const [fechaForm] = useState<Dayjs | null>(null);
+  const [fechaForm] = useState<Dayjs | null>(
+    mascotaEdit ? formattedFechaNacimiento : null
+  );
+
   const [subMascota, setSubMascota] = useState(false);
+  const [editMascota, setEditMascota] = useState(false);
   const { loading, callEndpoint } = useFetchAndLoad();
   const stateUser = useSelector((store: AppStore) => store.user);
   const getApiData = async () => await callEndpoint(getRazas());
@@ -78,7 +113,11 @@ const FormMascota: React.FC<FormMascotaProps> = () => {
       propietario: { id: stateUser.id },
     }));
     if (mascota.nombre !== "") {
-      setSubMascota(true);
+      if (!mascota.id) {
+        setSubMascota(true);
+      } else {
+        setEditMascota(true);
+      }
     }
   };
   return (
@@ -105,7 +144,7 @@ const FormMascota: React.FC<FormMascotaProps> = () => {
               color="secondary"
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
-              value={mascota.raza.id}
+              value={mascota.raza?.id || 0}
               label="Raza"
               onChange={(e) =>
                 setMascota((oldState) => ({
@@ -140,11 +179,20 @@ const FormMascota: React.FC<FormMascotaProps> = () => {
             </DemoContainer>
           </LocalizationProvider>
           <Button color="secondary" variant="contained" onClick={handleSubmit}>
-            Enviar
+            {mascota.id ? "Editar" : "Crear"}
           </Button>
 
           {subMascota && (
             <CreateMascotaAdapter
+              nombre={mascota.nombre}
+              fechaNacimiento={mascota.fechaNacimiento}
+              idPropietario={mascota.propietario.id}
+              idRaza={mascota.raza.id}
+            />
+          )}
+          {editMascota && mascota.id && (
+            <EditMascotaAdapter
+              id={mascota.id}
               nombre={mascota.nombre}
               fechaNacimiento={mascota.fechaNacimiento}
               idPropietario={mascota.propietario.id}

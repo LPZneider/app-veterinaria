@@ -1,3 +1,57 @@
-.mascotadetalle {
-  
+/* Clases para el artículo */
+.mascota__detalle {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+/* Clases para la sección de presentación de la mascota */
+.mascota__presentacion button {
+  margin-top: 2rem;
+}
+.mascota__detalle__imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Clases para la sección de información de la mascota */
+.mascota__informacion {
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+}
+.mascota__informacion h2 {
+  font-family: "Dancing Script", cursive;
+}
+.mascota__informacion p {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: #00000044 solid 1px;
+}
+@media (min-width: 700px) {
+  .mascota__detalle {
+    flex-flow: row wrap;
+  }
+  .mascota__detalle > * {
+    flex: 1 1 30%;
+  }
+
+  .buttons {
+  }
+  /* Clases para la sección de presentación de la mascota */
+  .mascota__presentacion button {
+  }
+  .mascota__detalle__imagen {
+  }
+  /* Clases para la sección de información de la mascota */
+  .mascota__informacion {
+  }
+  .mascota__informacion h2 {
+  }
+  .mascota__informacion p {
+  }
 }

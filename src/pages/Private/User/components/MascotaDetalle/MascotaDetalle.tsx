@@ -32,17 +32,19 @@ const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
         <section className="mascota__presentacion">
           <h1>{mascota.nombre}</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-            provident accusamus consequuntur nam nulla ratione, fugiat est error
-            perspiciatis eius expedita, doloremque corporis ab itaque veniam
-            quod! Voluptatem, tempore repudiandae.
+            Cada mascota llevaba consigo un tesoro de amor y compasión, como un
+            eco susurrante de la sabiduría de la naturaleza, enseñándonos a
+            valorar la belleza y la importancia de cada criatura viviente en
+            este vasto tapiz de vida.
           </p>
-          <Button variant="contained" color="secondary">
-            Editar
-          </Button>
-          <Button variant="outlined" color="secondary">
-            Eliminar
-          </Button>
+          <div className="buttons">
+            <Button className="Button" variant="contained" color="secondary">
+              Editar
+            </Button>
+            <Button className="Button" variant="outlined" color="secondary">
+              Eliminar
+            </Button>
+          </div>
         </section>
         <section className="mascota__detalle__imagen">
           <img
@@ -51,16 +53,16 @@ const MascotaDetalle: React.FC<MascotaDetalleProps> = () => {
           />
         </section>
         <section className="mascota__informacion">
-          <h2>fecha de nacimiento</h2>
+          <h2>Fecha de nacimiento</h2>
           <p>{fechaNacimiento?.toLocaleDateString()}</p>
           <h2>Raza</h2>
           <p>{mascota.raza.nombre}</p>
           <h2>Tamaño</h2>
           <p>{mascota.raza.tamanio}</p>
           <h2>Peso</h2>
-          <p>{mascota.raza.peso}</p>
+          <p>{mascota.raza.peso} kilos</p>
           <h2>Altura</h2>
-          <p>{mascota.raza.altura}</p>
+          <p>{mascota.raza.altura} cm</p>
         </section>
       </article>
     </div>

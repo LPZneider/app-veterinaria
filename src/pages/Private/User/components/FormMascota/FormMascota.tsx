@@ -1,4 +1,3 @@
-"use client";
 import { EditMascotaAdapter } from "@/adapters";
 import CreateMascotaAdapter from "@/adapters/CreateMascotaAdapter";
 import { Navbar } from "@/components/Navbar";

@@ -31,6 +31,18 @@ export const propsNavUser: PropsNav = {
     { title: "Salir", path: "/home" },
   ],
 };
+export const propsNavProductos: PropsNav = {
+  pages: [
+    { title: "Home", path: "/usuario" },
+    { title: "Veterinarias", path: "/veterinarias" },
+    { title: "Mis Mascotas", path: "/mascotas" },
+  ],
+  settings: [
+    { title: "Mi cuenta", path: "/mi-cuenta" },
+    { title: "configuracion", path: "/configuracion" },
+    { title: "Salir", path: "/home" },
+  ],
+};
 export const propsNavUserMascota: PropsNav = {
   pages: [
     { title: "Productos", path: "/productos" },

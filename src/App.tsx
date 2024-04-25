@@ -114,14 +114,14 @@ const rutasUser = [
     element: <FormMascota />,
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
   },
-  {
-    element: <FormMascota />,
-    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
+  /*  {
+    element: <Veterinarias />,
+    path: PrivateRoutes.VETERINARIAS_DETALLE,
   },
   {
     element: <FormMascota />,
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
-  },
+  }, */
 ];
 const rutasVeterinaria = [
   {

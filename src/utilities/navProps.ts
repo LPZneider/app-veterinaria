@@ -6,7 +6,10 @@ const pages: Pages[] = [
   { title: "Acceder", path: "/login" },
 ];
 
-const settings: Settings[] = [{ title: "Acceder", path: "/login" }];
+const settingsUser: Settings[] = [
+  { title: "Mi cuenta", path: "/mi-cuenta" },
+  { title: "Salir", path: "/home" },
+];
 
 const pagesLogin: Pages[] = [
   { title: "Productos", path: "/productos" },
@@ -15,12 +18,12 @@ const pagesLogin: Pages[] = [
 
 export const propsNavHome: PropsNav = {
   pages,
-  settings,
+  settings: [{ title: "Acceder", path: "/login" }],
 };
 
 export const propsNavLogin: PropsNav = {
   pages: pagesLogin,
-  settings,
+  settings: [{ title: "Acceder", path: "/login" }],
 };
 
 export const propsNavUser: PropsNav = {
@@ -29,10 +32,7 @@ export const propsNavUser: PropsNav = {
     { title: "Veterinarias", path: "/veterinarias" },
     { title: "Mis Mascotas", path: "/mascotas" },
   ],
-  settings: [
-    { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "Salir", path: "/home" },
-  ],
+  settings: settingsUser,
 };
 
 export const propsNavProductos: PropsNav = {
@@ -41,10 +41,7 @@ export const propsNavProductos: PropsNav = {
     { title: "Veterinarias", path: "/veterinarias" },
     { title: "Mis Mascotas", path: "/mascotas" },
   ],
-  settings: [
-    { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "Salir", path: "/home" },
-  ],
+  settings: settingsUser,
 };
 
 export const propsNavUserMascota: PropsNav = {
@@ -56,10 +53,7 @@ export const propsNavUserMascota: PropsNav = {
     },
     { title: "Home", path: `/${PrivateRoutes.HOME_PRIVATE_USER}` },
   ],
-  settings: [
-    { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "Salir", path: "/home" },
-  ],
+  settings: settingsUser,
 };
 
 export const propsNavUserVeterinaria: PropsNav = {
@@ -68,10 +62,7 @@ export const propsNavUserVeterinaria: PropsNav = {
     { title: "Productos", path: "/productos" },
     { title: "Mis Mascotas", path: "/mascotas" },
   ],
-  settings: [
-    { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "Salir", path: "/home" },
-  ],
+  settings: settingsUser,
 };
 
 export const propsNavVeterinaria: PropsNav = {
@@ -82,18 +73,10 @@ export const propsNavVeterinaria: PropsNav = {
       path: "/mis-veterinarios",
     },
   ],
-  settings: [
-    { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "configuracion", path: "/configuracion" },
-    { title: "Salir", path: "/home" },
-  ],
+  settings: settingsUser,
 };
 
 export const propsNavVet: PropsNav = {
   pages: [{ title: "Mis pacientes", path: "/mis-pacientes" }],
-  settings: [
-    { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "configuracion", path: "/configuracion" },
-    { title: "Salir", path: "/home" },
-  ],
+  settings: settingsUser,
 };

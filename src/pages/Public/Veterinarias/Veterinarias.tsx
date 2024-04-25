@@ -1,14 +1,14 @@
 "use client";
-import React, { useState } from "react";
-import "./Veterinarias.css";
-import { propsNavHome, propsNavUserMascota } from "@/utilities";
 import { Navbar } from "@/components/Navbar";
 import { useAsync, useFetchAndLoad } from "@/hooks";
-import getVeterinarias from "@/services/veterinarias.service";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { AppStore } from "@/redux/store";
 import { Roles } from "@/models";
+import { AppStore } from "@/redux/store";
+import getVeterinarias from "@/services/veterinarias.service";
+import { propsNavHome, propsNavUserVeterinaria } from "@/utilities";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import "./Veterinarias.css";
 
 export type VeterinariasProps = {
   // types...
@@ -30,7 +30,9 @@ const Veterinarias: React.FC<VeterinariasProps> = () => {
   const navigate = useNavigate();
 
   const isLogin =
-    userState.rol !== Roles.NO_REGISTRADO ? propsNavUserMascota : propsNavHome;
+    userState.rol !== Roles.NO_REGISTRADO
+      ? propsNavUserVeterinaria
+      : propsNavHome;
   return (
     <div className="veterinarias home">
       <Navbar {...isLogin} />

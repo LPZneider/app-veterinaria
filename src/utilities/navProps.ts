@@ -5,7 +5,9 @@ const pages: Pages[] = [
   { title: "Veterinarias", path: "/veterinarias" },
   { title: "Acceder", path: "/login" },
 ];
+
 const settings: Settings[] = [{ title: "Acceder", path: "/login" }];
+
 const pagesLogin: Pages[] = [
   { title: "Productos", path: "/productos" },
   { title: "Veterinarias", path: "/veterinarias" },
@@ -15,10 +17,12 @@ export const propsNavHome: PropsNav = {
   pages,
   settings,
 };
+
 export const propsNavLogin: PropsNav = {
   pages: pagesLogin,
   settings,
 };
+
 export const propsNavUser: PropsNav = {
   pages: [
     { title: "Productos", path: "/productos" },
@@ -27,10 +31,10 @@ export const propsNavUser: PropsNav = {
   ],
   settings: [
     { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "configuracion", path: "/configuracion" },
     { title: "Salir", path: "/home" },
   ],
 };
+
 export const propsNavProductos: PropsNav = {
   pages: [
     { title: "Home", path: "/usuario" },
@@ -39,10 +43,10 @@ export const propsNavProductos: PropsNav = {
   ],
   settings: [
     { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "configuracion", path: "/configuracion" },
     { title: "Salir", path: "/home" },
   ],
 };
+
 export const propsNavUserMascota: PropsNav = {
   pages: [
     { title: "Productos", path: "/productos" },
@@ -54,10 +58,22 @@ export const propsNavUserMascota: PropsNav = {
   ],
   settings: [
     { title: "Mi cuenta", path: "/mi-cuenta" },
-    { title: "configuracion", path: "/configuracion" },
     { title: "Salir", path: "/home" },
   ],
 };
+
+export const propsNavUserVeterinaria: PropsNav = {
+  pages: [
+    { title: "Home", path: `/${PrivateRoutes.HOME_PRIVATE_USER}` },
+    { title: "Productos", path: "/productos" },
+    { title: "Mis Mascotas", path: "/mascotas" },
+  ],
+  settings: [
+    { title: "Mi cuenta", path: "/mi-cuenta" },
+    { title: "Salir", path: "/home" },
+  ],
+};
+
 export const propsNavVeterinaria: PropsNav = {
   pages: [
     { title: "Mis productos", path: "/mis-productos" },
@@ -72,6 +88,7 @@ export const propsNavVeterinaria: PropsNav = {
     { title: "Salir", path: "/home" },
   ],
 };
+
 export const propsNavVet: PropsNav = {
   pages: [{ title: "Mis pacientes", path: "/mis-pacientes" }],
   settings: [

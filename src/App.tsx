@@ -17,6 +17,7 @@ import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
 import { MascotaDetalle } from "./pages/Private/User/components/MascotaDetalle";
 import { ProductoDetalle } from "./pages/Public/Productos/components/ProductoDetalle";
+import { VeterinariasDetalle } from "./pages/Public/Veterinarias/components/VeterinariasDetalle";
 
 const theme = createTheme({
   palette: {
@@ -118,6 +119,10 @@ const rutasUser = [
   {
     element: <ProductoDetalle />,
     path: PrivateRoutes.PRODUCTOS_DETALLE,
+  },
+  {
+    element: <VeterinariasDetalle />,
+    path: PrivateRoutes.VETERINARIAS_DETALLE,
   },
   {
     element: <CuentaUser />,

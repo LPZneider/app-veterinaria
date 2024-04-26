@@ -1,4 +1,4 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Navbar } from "@/components/Navbar";
 import { useAsync, useFetchAndLoad } from "@/hooks";
 import { Roles } from "@/models";
@@ -22,7 +22,6 @@ const Veterinarias: React.FC<VeterinariasProps> = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const adaptUser = (data: any) => {
-    console.log(data);
     setVeterinarias(data);
   };
 

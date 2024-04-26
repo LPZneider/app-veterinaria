@@ -1,0 +1,111 @@
+import { useAsync, useFetchAndLoad } from "@/hooks";
+import getVeterinariasId from "@/services/veterinariasId.service";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import "./VeterinariasDetalle.css";
+import { Navbar } from "@/components/Navbar";
+import { propsNavUserVeterinaria } from "@/utilities";
+import { Roles, VeterinariaInfo } from "@/models";
+import { useSelector } from "react-redux";
+import { AppStore } from "@/redux/store";
+import { Alert, Button } from "@mui/material";
+
+export type VeterinariasDetalleProps = {
+  // types...
+};
+
+const EmptyVeteState: VeterinariaInfo = {
+  nombre: "",
+  direccion: "",
+  usuarios: [],
+  veterinarios: [],
+  rol: Roles.NO_REGISTRADO,
+};
+
+const VeterinariasDetalle: React.FC<VeterinariasDetalleProps> = () => {
+  const userState = useSelector((store: AppStore) => store.user);
+  const params = useParams();
+  const veterinariaIdString = params.veterinariaId;
+  const veterinariaId = parseInt(veterinariaIdString ?? "0");
+  const { callEndpoint } = useFetchAndLoad();
+
+  const getApiData = async () =>
+    await callEndpoint(getVeterinariasId(veterinariaId));
+
+  const [veterinaria, setVeterinaria] =
+    useState<VeterinariaInfo>(EmptyVeteState);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const adaptUser = (data: any) => {
+    console.log("aaaaaaaaaaa", data);
+    setVeterinaria(data);
+  };
+
+  useAsync(getApiData, adaptUser, () => {});
+  return (
+    <div className="veterinariadetalle home">
+      <Navbar {...propsNavUserVeterinaria} />
+      <div className="veterinaria__detalle">
+        <section className="imagen_veterinaria">
+          <img
+            src={`/public/assets/dog${Math.floor(Math.random() * 5) + 1}.svg`}
+            alt="icono mascota"
+          />
+        </section>
+        <section className="informacion__veterinaria">
+          <h1>{veterinaria.nombre}</h1>
+          {veterinaria.usuarios.filter((usuario) => {
+            return usuario.id === userState.id;
+          }) ? (
+            <Alert
+              severity="success"
+              variant="outlined"
+              action={
+                <Button color="success" size="small" variant="contained">
+                  Anular
+                </Button>
+              }
+            >
+              Estas suscrito
+            </Alert>
+          ) : (
+            <Alert
+              severity="info"
+              variant="outlined"
+              action={
+                <Button color="success" size="small" variant="contained">
+                  Suscribirse
+                </Button>
+              }
+            >
+              No estas suscrito
+            </Alert>
+          )}
+          <p>
+            En cada veterinaria, florece un jardín de amor y compromiso, una
+            sinfonía silenciosa de entrega hacia cada ser que busca su ayuda.
+            Con su toque gentil y su mente llena de conocimiento, ellas cuidan y
+            protegen, recordándonos la importancia de cada criatura en el
+            mosaico de la vida.
+          </p>
+
+          <h2>Veterinarios inscritos</h2>
+          <div className="info">
+            {veterinaria.veterinarios &&
+              veterinaria.veterinarios.map((vete) => (
+                <section key={vete.nombre} className="item__mascota">
+                  <section className="item__image__mascota"></section>
+                  <article className="info__mascota">
+                    <h2 className="titulo__mascota">{vete.nombre}</h2>
+                  </article>
+                </section>
+              ))}
+          </div>
+        </section>
+        <section className="mascota__detalle__imagen"></section>
+      </div>
+    </div>
+  );
+};
+
+export default VeterinariasDetalle;

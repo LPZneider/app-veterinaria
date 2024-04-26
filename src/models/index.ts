@@ -6,6 +6,7 @@ export * from "./editUser";
 export * from "./loginProps";
 export * from "./mascota.model";
 export * from "./navbar";
+export * from "./producto.model";
 export * from "./raza.model";
 export * from "./registerProps";
 export * from "./roles";

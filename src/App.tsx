@@ -112,6 +112,10 @@ const rutasUser = [
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM,
   },
   {
+    element: <FormMascota />,
+    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
+  },
+  {
     element: <ProductoDetalle />,
     path: PrivateRoutes.PRODUCTOS_DETALLE,
   },
@@ -119,14 +123,6 @@ const rutasUser = [
     element: <CuentaUser />,
     path: PrivateRoutes.MI_CUENTA_USER,
   },
-  /*  {
-    element: <Veterinarias />,
-    path: PrivateRoutes.VETERINARIAS_DETALLE,
-  },
-  {
-    element: <FormMascota />,
-    path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
-  }, */
 ];
 const rutasVeterinaria = [
   {

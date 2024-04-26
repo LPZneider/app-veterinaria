@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Navbar } from "@/components/Navbar";
 import { useAsync, useFetchAndLoad } from "@/hooks";
-import { Roles } from "@/models";
+import { Producto, Roles } from "@/models";
 import { AppStore } from "@/redux/store";
 import getProductos from "@/services/productos.service";
-import { propsNavHome, propsNavProductos, propsNavUser } from "@/utilities";
+import { propsNavHome, propsNavProductos } from "@/utilities";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -18,11 +19,10 @@ const Productos: React.FC<ProductosProps> = () => {
   const userState = useSelector((store: AppStore) => store.user);
   const { callEndpoint } = useFetchAndLoad();
   const getApiData = async () => await callEndpoint(getProductos());
-  const [productos, setProductos] = useState<[]>([]);
+  const [productos, setProductos] = useState<Producto[]>([]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const adaptUser = (data: any) => {
-    console.log(data);
     setProductos(data);
   };
 

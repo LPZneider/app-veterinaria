@@ -6,7 +6,7 @@ const editUsuario = ({ id, nombre, direccion }: UserEdit) => {
   const controller = loadAbort();
   return {
     call: axios.put(
-      `http://localhost:8080/usuarios/?id=${id}&nombre=${nombre}&direccion=${direccion}`,
+      `http://localhost:8080/veterinaria/usuarios?id=${id}&nombre=${nombre}&direccion=${direccion}`,
       {},
       {
         signal: controller.signal,

@@ -1,5 +1,5 @@
 import { useAsync, useFetchAndLoad } from "@/hooks";
-import { PrivateRoutes, UserEdit } from "@/models";
+import { PrivateRoutes, UserEdit, UserInfo } from "@/models";
 import { update } from "@/redux/states/user";
 import { AppStore } from "@/redux/store";
 import editUsuario from "@/services/usuarioEdit.service";
@@ -25,6 +25,11 @@ const EditUserAdapter = ({ id, nombre, direccion }: UserEdit) => {
     dispatch(update(updatedUserState));
 
     navigate(`/${PrivateRoutes.MI_CUENTA_USER}`, { replace: true });
+
+    const datalocal = localStorage.getItem("user");
+    let datalocalobj = datalocal ? (JSON.parse(datalocal) as UserInfo) : {};
+    datalocalobj = data;
+    localStorage.setItem("user", JSON.stringify(datalocalobj));
   };
 
   useAsync(getApiData, adaptUser, () => {});

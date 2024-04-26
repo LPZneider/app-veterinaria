@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { AppStore } from "@/redux/store";
 import { propsNavUser } from "@/utilities";
 import { Button, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./CuentaUser.css";
 
@@ -14,10 +14,14 @@ export type CuentaUserProps = {
 
 const CuentaUser: React.FC<CuentaUserProps> = () => {
   const userState = useSelector((store: AppStore) => store.user);
-  const [nombre, setNombre] = useState(userState.nombre);
-  const [direccion, setDireccion] = useState(userState.direccion);
+  const [nombre, setNombre] = useState(userState.nombre || "");
+  const [direccion, setDireccion] = useState(userState.direccion || "");
   const [edit, setEdit] = useState(true);
   const [env, setEnv] = useState(false);
+  useEffect(() => {
+    setEnv(false);
+    setEdit(true);
+  }, [userState]);
   return (
     <div className="cuentauser home">
       <Navbar {...propsNavUser} />
@@ -60,7 +64,7 @@ const CuentaUser: React.FC<CuentaUserProps> = () => {
         <Button variant="outlined" onClick={() => setEdit(!edit)}>
           {!edit ? "Cancelar" : "Editar"}
         </Button>
-        {!edit && (
+        {edit === false && (
           <Button
             variant="outlined"
             onClick={() => {

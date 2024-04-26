@@ -7,6 +7,7 @@ export const PublicRoutes = {
 };
 export const PrivateRoutes = {
   PRIVATE: "private",
+  MI_CUENTA_USER: "mi-cuenta-user",
   DASHBOARD: "dashboard",
   HOME_PRIVATE_USER: "usuario",
   HOME_PRIVATE_USER_MASCOTA: "mascotas",

@@ -117,6 +117,7 @@ function Navbar({ pages, settings }: PropsNav) {
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
                   <Typography
                     textAlign="center"
+                    style={{ textDecoration: "none" }}
                     component={Link}
                     to={page.path}
                   >

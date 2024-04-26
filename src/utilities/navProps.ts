@@ -7,7 +7,7 @@ const pages: Pages[] = [
 ];
 
 const settingsUser: Settings[] = [
-  { title: "Mi cuenta", path: "/mi-cuenta" },
+  { title: "Mi cuenta", path: "/mi-cuenta-user" },
   { title: "Salir", path: "/home" },
 ];
 

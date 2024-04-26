@@ -4,6 +4,7 @@ import { login } from "@/redux/states/user";
 import { loginVeterinaria } from "@/redux/states/veterinaria";
 import { loginVet } from "@/redux/states/veterinario";
 import getLogin from "@/services/login.service";
+import { dir } from "console";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +27,9 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
           login({
             id: data.id,
             nombre: data.nombre,
+            direccion: data.direccion,
             mascostas: data.mascotas,
+            registro: data.registro,
             rol: role,
           })
         );

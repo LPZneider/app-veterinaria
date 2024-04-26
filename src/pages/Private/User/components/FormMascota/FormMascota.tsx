@@ -1,4 +1,4 @@
-import { EditMascotaAdapter } from "@/adapters";
+import EditMascotaAdapter from "@/adapters/EditMascotaAdapter";
 import CreateMascotaAdapter from "@/adapters/CreateMascotaAdapter";
 import { Navbar } from "@/components/Navbar";
 import { useAsync, useFetchAndLoad } from "@/hooks";

@@ -1,0 +1,22 @@
+.cuentauser {
+  background-image: url(/public/assets/vet.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.user__cuenta {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  gap: 2rem;
+  background-color: #f5f5f5f3;
+  border-radius: 2rem;
+  padding: 2.5rem 0;
+}
+@media (min-width: 700px) {
+  .user__cuenta {
+    width: 40%;
+    margin: 3rem auto 2rem;
+  }
+}

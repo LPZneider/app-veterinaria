@@ -11,7 +11,7 @@ import { PrivateRoutes, PublicRoutes } from "./models";
 import { Productos, Veterinarias, Veterinario } from "./pages";
 import { Access } from "./pages/Public/Access";
 import { Home } from "./pages/Public/Home";
-import { FormMascota, Mascotas, User } from "./pages/Private/User";
+import { CuentaUser, FormMascota, Mascotas, User } from "./pages/Private/User";
 import { Veterinaria } from "./pages/Private/Veterinaria";
 import store from "./redux/store";
 import { RoutesWithNotFound } from "./utilities";
@@ -113,6 +113,10 @@ const rutasUser = [
   {
     element: <FormMascota />,
     path: PrivateRoutes.HOME_PRIVATE_USER_MASCOTA_FORM_EDIT,
+  },
+  {
+    element: <CuentaUser />,
+    path: PrivateRoutes.MI_CUENTA_USER,
   },
   /*  {
     element: <Veterinarias />,

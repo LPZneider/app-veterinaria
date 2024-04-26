@@ -38,17 +38,32 @@ const ProductoDetalle: React.FC<ProductoDetalleProps> = () => {
   return (
     <div className="productodetalle home">
       <Navbar {...propsNavUserVeterinaria} />
-      <section className="imagen_producto">
-        <img
-          src={`/public/assets/dog${Math.floor(Math.random() * 5) + 1}.svg`}
-          alt="icono mascota"
-        />
-      </section>
-      <section className="informacion__producto">
-        <h1>{producto.nombre}</h1>
-        <h2>cant : {producto.cantidad}</h2>
-      </section>
-      <section className="mascota__detalle__imagen"></section>
+      <div className="producto__detalle">
+        <section className="imagen_producto">
+          <img
+            src={`/public/assets/dog${Math.floor(Math.random() * 5) + 1}.svg`}
+            alt="icono mascota"
+          />
+        </section>
+        <section className="informacion__producto">
+          <h1>{producto.nombre}</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+            nobis animi aliquam placeat natus accusamus quia reprehenderit quasi
+            magnam maxime? Voluptatem eius labore autem magni eveniet
+            accusantium nostrum alias molestias!
+          </p>
+          <div className="info">
+            <h2>
+              <strong>Precio :</strong> $ {producto.precio}
+            </h2>
+            <h2>
+              <strong>Cant :</strong> {producto.cantidad}
+            </h2>
+          </div>
+        </section>
+        <section className="mascota__detalle__imagen"></section>
+      </div>
     </div>
   );
 };

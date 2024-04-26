@@ -1,3 +1,30 @@
-.productodetalle {
-  
+.imagen_producto {
+  border-radius: 1rem;
+  background-color: var(--color-2);
+}
+
+.info {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.info h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #432922;
+}
+
+.info strong {
+  color: #432922;
+}
+
+@media (min-width: 720px) {
+  .producto__detalle {
+    display: flex;
+    column-gap: 3rem;
+  }
+  .imagen_producto {
+    margin-top: 3rem;
+  }
 }

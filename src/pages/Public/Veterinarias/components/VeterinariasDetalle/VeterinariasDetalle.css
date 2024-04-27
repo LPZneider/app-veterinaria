@@ -1,3 +1,27 @@
-.veterinariasdetalle {
-  
+.alerta {
+  margin-bottom: 1rem;
+}
+.texto__veterinaria {
+  margin-bottom: 1rem;
+}
+.item__image__veterinaria {
+  width: 4rem;
+  border: #653333 1px solid;
+  border-radius: 50%;
+}
+
+@media (min-width: 700px) {
+  .veterinaria__detalle {
+    align-items: center;
+    display: flex;
+  }
+  .veterinaria__detalle > * {
+    flex: 1 0 45%;
+  }
+  .item__veterinaria {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 1rem;
+  }
 }

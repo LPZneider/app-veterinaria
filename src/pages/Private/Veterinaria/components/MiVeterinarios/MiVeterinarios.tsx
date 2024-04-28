@@ -5,12 +5,14 @@ import { Navbar } from "@/components/Navbar";
 import { propsNavVeterinariaMiCuenta } from "@/utilities";
 import { useSelector } from "react-redux";
 import { AppStore } from "@/redux/store";
+import { useNavigate } from "react-router-dom";
 
 export type MiVeterinariosProps = {
   // types...
 };
 
 const MiVeterinarios: React.FC<MiVeterinariosProps> = () => {
+  const navigate = useNavigate();
   const veterinariaState = useSelector((store: AppStore) => store.veterinaria);
   return (
     <div className="miveterinarios home">
@@ -23,7 +25,7 @@ const MiVeterinarios: React.FC<MiVeterinariosProps> = () => {
             </article>
             <button
               className="button__mascota"
-              // onClick={() => navigate(`/productos/${producto.id}`)}
+              onClick={() => navigate(`/mis-veterinarios/${veterinario.id}`)}
             >
               Ver mas
             </button>

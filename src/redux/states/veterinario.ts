@@ -3,6 +3,7 @@ import { VeterinarioInfo } from "@/models/veterinario.modal";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const EmptyUserState: VeterinarioInfo = {
+  id: 0,
   nombre: "",
   rol: Roles.NO_REGISTRADO,
 };

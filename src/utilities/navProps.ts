@@ -93,6 +93,38 @@ export const propsNavVeterinariaMiCuenta: PropsNav = {
   ],
   settings: settingsVeterinaria,
 };
+export const propsNavVeterinariaMiVeterinarios: PropsNav = {
+  pages: [
+    { title: "Mis productos", path: "/mis-productos" },
+
+    {
+      title: "Home",
+      path: "/veterinaria",
+    },
+    {
+      title: "Crear Veterinario",
+      path: "/crear-veterinario",
+    },
+  ],
+  settings: settingsVeterinaria,
+};
+export const propsNavVeterinariaMiProductos: PropsNav = {
+  pages: [
+    {
+      title: "Mis veterinarios",
+      path: "/mis-veterinarios",
+    },
+    {
+      title: "Home",
+      path: "/veterinaria",
+    },
+    {
+      title: "Crear producto",
+      path: "/crear-producto",
+    },
+  ],
+  settings: settingsVeterinaria,
+};
 
 export const propsNavVet: PropsNav = {
   pages: [{ title: "Mis pacientes", path: "/mis-pacientes" }],

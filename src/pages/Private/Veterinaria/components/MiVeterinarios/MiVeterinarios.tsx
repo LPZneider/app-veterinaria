@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
-import "./MiVeterinarios.css";
 import { Navbar } from "@/components/Navbar";
-import { propsNavVeterinariaMiCuenta } from "@/utilities";
-import { useSelector } from "react-redux";
 import { AppStore } from "@/redux/store";
+import { propsNavVeterinariaMiVeterinarios } from "@/utilities";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import "./MiVeterinarios.css";
 
 export type MiVeterinariosProps = {
   // types...
@@ -16,7 +16,7 @@ const MiVeterinarios: React.FC<MiVeterinariosProps> = () => {
   const veterinariaState = useSelector((store: AppStore) => store.veterinaria);
   return (
     <div className="miveterinarios home">
-      <Navbar {...propsNavVeterinariaMiCuenta} />
+      <Navbar {...propsNavVeterinariaMiVeterinarios} />
       <section className="container__veterinaria">
         {veterinariaState.veterinarios.map((veterinario) => (
           <section key={veterinario.nombre} className="item__mascota">

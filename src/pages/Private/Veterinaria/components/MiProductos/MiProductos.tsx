@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React from "react";
-import "./MiProductos.css";
 import { Navbar } from "@/components/Navbar";
-import { propsNavVeterinariaMiCuenta } from "@/utilities";
-import { useSelector } from "react-redux";
 import { AppStore } from "@/redux/store";
+import { propsNavVeterinariaMiProductos } from "@/utilities";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import "./MiProductos.css";
 
 export type MiProductosProps = {
   // types...
@@ -18,7 +18,7 @@ const MiProductos: React.FC<MiProductosProps> = () => {
 
   return (
     <div className="miproductos home">
-      <Navbar {...propsNavVeterinariaMiCuenta} />
+      <Navbar {...propsNavVeterinariaMiProductos} />
       {veterinariaState.productos.length > 0 ? (
         <section className="container__veterinaria">
           {veterinariaState.productos.map((producto: any) => (

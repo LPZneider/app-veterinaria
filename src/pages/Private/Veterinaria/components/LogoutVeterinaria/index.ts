@@ -1,0 +1,1 @@
+export { default as LogoutVeterinaria } from './LogoutVeterinaria';

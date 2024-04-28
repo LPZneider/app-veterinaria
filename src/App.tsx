@@ -20,6 +20,7 @@ import { ProductoDetalle } from "./pages/Public/Productos/components/ProductoDet
 import { VeterinariasDetalle } from "./pages/Public/Veterinarias/components/VeterinariasDetalle";
 import { LogoutUser } from "./pages/Private/User/components/LogoutUser";
 import { CuentaVeterinaria } from "./pages/Private/Veterinaria/components/CuentaVeterinaria";
+import { LogoutVeterinaria } from "./pages/Private/Veterinaria/components/LogoutVeterinaria";
 
 const theme = createTheme({
   palette: {
@@ -143,6 +144,10 @@ const rutasVeterinaria = [
   {
     element: <CuentaVeterinaria />,
     path: PrivateRoutes.MI_CUENTA_VETERINARIA,
+  },
+  {
+    element: <LogoutVeterinaria />,
+    path: PrivateRoutes.LOGOUT_VETERINARIA,
   },
 ];
 const rutasVet = [

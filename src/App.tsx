@@ -18,6 +18,7 @@ import { RoutesWithNotFound } from "./utilities";
 import { MascotaDetalle } from "./pages/Private/User/components/MascotaDetalle";
 import { ProductoDetalle } from "./pages/Public/Productos/components/ProductoDetalle";
 import { VeterinariasDetalle } from "./pages/Public/Veterinarias/components/VeterinariasDetalle";
+import { LogoutUser } from "./pages/Private/User/components/LogoutUser";
 
 const theme = createTheme({
   palette: {
@@ -127,6 +128,10 @@ const rutasUser = [
   {
     element: <CuentaUser />,
     path: PrivateRoutes.MI_CUENTA_USER,
+  },
+  {
+    element: <LogoutUser />,
+    path: PrivateRoutes.LOGOUT_USER,
   },
 ];
 const rutasVeterinaria = [

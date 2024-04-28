@@ -8,7 +8,7 @@ const pages: Pages[] = [
 
 const settingsUser: Settings[] = [
   { title: "Mi cuenta", path: "/mi-cuenta-user" },
-  { title: "Salir", path: "/home" },
+  { title: "Salir", path: "/cerrar-sesion" },
 ];
 
 const pagesLogin: Pages[] = [

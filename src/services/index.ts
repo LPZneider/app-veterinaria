@@ -7,6 +7,7 @@ export { default as productos.service } from './productos.service';
 export { default as razas.service } from './razas.service';
 export { default as register.service } from './register.service';
 export { default as usuarioEdit.service } from './usuarioEdit.service';
+export { default as veterinariaEdit.service } from './veterinariaEdit.service';
 export { default as veterinariaUsuarioAdd.service } from './veterinariaUsuarioAdd.service';
 export { default as veterinariaUsuarioRemove.service } from './veterinariaUsuarioRemove.service';
 export { default as veterinarias.service } from './veterinarias.service';

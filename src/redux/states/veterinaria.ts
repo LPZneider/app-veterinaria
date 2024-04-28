@@ -3,13 +3,18 @@ import { VeterinariaInfo } from "@/models/veterinariaInfo";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const EmptyUserState: VeterinariaInfo = {
+  id: 0,
   nombre: "",
   direccion: "",
   usuarios: [],
   veterinarios: [],
+  registro: {
+    email: "",
+    password: "",
+  },
+  productos: [],
   rol: Roles.NO_REGISTRADO,
 };
-export const UserKey = "user";
 
 export const veterinariaSlice = createSlice({
   name: "user",
@@ -24,6 +29,10 @@ export const veterinariaSlice = createSlice({
         return state;
       }
     },
+    updateVeterinaria: (state, action) => {
+      console.log(action.payload, state);
+      return action.payload;
+    },
     logoutVeterinaria: (state) => {
       if (state.rol !== Roles.NO_REGISTRADO) {
         return EmptyUserState;
@@ -33,6 +42,7 @@ export const veterinariaSlice = createSlice({
     },
   },
 });
-export const { loginVeterinaria, logoutVeterinaria } = veterinariaSlice.actions;
+export const { loginVeterinaria, updateVeterinaria, logoutVeterinaria } =
+  veterinariaSlice.actions;
 
 export default veterinariaSlice.reducer;

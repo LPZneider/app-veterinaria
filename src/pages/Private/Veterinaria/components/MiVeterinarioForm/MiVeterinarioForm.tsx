@@ -8,6 +8,8 @@ import { Navbar } from "@/components/Navbar";
 import { propsNavVeterinariaMiCuenta } from "@/utilities";
 import { Button, TextField } from "@mui/material";
 import { Registro } from "@/models";
+import CreateVeterianarioAdapter from "@/adapters/CreateVeterinarioAdapter";
+import EditVeterinarioAdapter from "@/adapters/EditVeterinarioAdapter";
 
 export type MiVeterinarioFormProps = {
   // types...
@@ -73,10 +75,11 @@ const MiVeterinarioForm: React.FC = () => {
         />
         <TextField
           id="tlisdfned-"
-          type="number"
+          type="email"
           label="Email"
           variant="outlined"
           color="secondary"
+          disabled={!!veterinarioEdit}
           value={veterinario.registro.email}
           onChange={({ target }) => {
             setVeterinario((oldState) => ({
@@ -87,10 +90,11 @@ const MiVeterinarioForm: React.FC = () => {
         />
         <TextField
           id="ser-basifc"
-          type="number"
+          type="password"
           label="Password"
           variant="outlined"
           color="secondary"
+          disabled={!!veterinarioEdit}
           value={veterinario.registro.password}
           onChange={({ target }) => {
             setVeterinario((oldState) => ({
@@ -106,25 +110,23 @@ const MiVeterinarioForm: React.FC = () => {
         <Button color="secondary" variant="contained" onClick={handleSubmit}>
           {veterinario.id ? "Editar" : "Crear"}
         </Button>
-        {/* 
+
         {subVeterinario && (
-          <CreateveterinarioAdapter
+          <CreateVeterianarioAdapter
             nombre={veterinario.nombre}
-            cantidad={veterinario.cantidad}
-            precio={veterinario.precio}
+            email={veterinario.registro.email}
+            password={veterinario.registro.password}
             idVeterinaria={veterinariaState.id}
           />
         )}
 
         {editveterinario && veterinario.id && (
-          <EditveterinarioAdapter
+          <EditVeterinarioAdapter
             id={veterinario.id}
             nombre={veterinario.nombre}
-            cantidad={veterinario.cantidad}
-            precio={veterinario.precio}
             idVeterinaria={veterinariaState.id}
           />
-        )} */}
+        )}
       </article>
     </div>
   );

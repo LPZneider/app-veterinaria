@@ -103,7 +103,7 @@ export const propsNavVeterinariaMiVeterinarios: PropsNav = {
     },
     {
       title: "Crear Veterinario",
-      path: "/crear-veterinario",
+      path: "/veterinario-form",
     },
   ],
   settings: settingsVeterinaria,

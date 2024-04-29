@@ -11,6 +11,7 @@ export * from "./navbar";
 export * from "./producto.model";
 export * from "./raza.model";
 export * from "./registerProps";
+export * from "./registro.modal";
 export * from "./roles";
 export * from "./routes";
 export * from "./user.modal";

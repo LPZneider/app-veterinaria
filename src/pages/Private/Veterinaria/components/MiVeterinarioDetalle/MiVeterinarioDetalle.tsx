@@ -59,7 +59,7 @@ const MiVeterinarioDetalle: React.FC<MiVeterinarioDetalleProps> = () => {
               className="Button"
               variant="contained"
               color="secondary"
-              onClick={() => navigate(`/producto-form/${veterinario.id}`)}
+              onClick={() => navigate(`/veterinario-form/${veterinario.id}`)}
             >
               Editar
             </Button>

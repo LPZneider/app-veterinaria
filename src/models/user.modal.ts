@@ -1,9 +1,7 @@
 import { Roles } from "./roles";
 import { Mascota } from "./mascota.model";
-interface Registro {
-  email: string;
-  password: string;
-}
+import { Registro } from "./registro.modal";
+
 export interface UserInfo {
   id: number;
   nombre: string;

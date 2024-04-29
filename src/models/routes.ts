@@ -21,6 +21,8 @@ export const PrivateRoutes = {
   HOME_PRIVATE_VETERINARIA: "veterinaria",
   MI_CUENTA_VETERINARIA: "mi-cuenta-veterinaria",
   MI_VETERINARIOS_VETERINARIA: "mis-veterinarios",
+  MI_VETERINARIOS_VETERINARIA_FORM: "veterinario-form",
+  MI_VETERINARIOS_VETERINARIA_FORM_EDIT: "/veterinario-form/:miVeterinario",
   MI_VETERINARIOS_VETERINARIA_DETALLE: "/mis-veterinarios/:veterinarioId",
   MI_PRODUCTOS_VETERINARIA: "mis-productos",
   MI_PRODUCTOS_VETERINARIA_FORM: "crear-producto",

@@ -1,11 +1,9 @@
 import { Producto } from "./producto.model";
+import { Registro } from "./registro.modal";
 import { Roles } from "./roles";
 import { UserInfo } from "./user.modal";
 import { VeterinarioInfo } from "./veterinario.modal";
-interface Registro {
-  email: string;
-  password: string;
-}
+
 export interface VeterinariaInfo {
   id: number;
   nombre: string;

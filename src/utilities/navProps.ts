@@ -125,8 +125,18 @@ export const propsNavVeterinariaMiProductos: PropsNav = {
   ],
   settings: settingsVeterinaria,
 };
-
+const settingsVeterinario: Settings[] = [
+  { title: "Mi cuenta", path: "/mi-cuenta-veterinario" },
+  { title: "Salir", path: "/cerrar-seccion-veterinario" },
+];
 export const propsNavVet: PropsNav = {
   pages: [{ title: "Mis pacientes", path: "/mis-pacientes" }],
-  settings: settingsUser,
+  settings: settingsVeterinario,
+};
+export const propsNavVetCuenta: PropsNav = {
+  pages: [
+    { title: "Mis pacientes", path: "/mis-pacientes" },
+    { title: "Home", path: "/veterinario" },
+  ],
+  settings: settingsVeterinario,
 };

@@ -10,15 +10,15 @@ export type VeterinarioProps = {
   // types...
 };
 
-const Veterinario: React.FC<VeterinarioProps> = ({}) => {
-  const userState = useSelector((store: AppStore) => store.veterinario);
+const Veterinario: React.FC<VeterinarioProps> = () => {
+  const veterinarioState = useSelector((store: AppStore) => store.veterinario);
   return (
     <div className="veterinario home">
       <Navbar {...propsNavVet} />
       <section className="user">
         <h1 className="titulo__user">
-          Bienvenido Veterinario {userState.nombre} a mara lugar de tratamientos
-          y citas.
+          Bienvenido Veterinario {veterinarioState.veterinarios.nombre} a Mara
+          lugar de tratamientos y citas.
         </h1>
         <div className="div-emma">
           <img src="/public/assets/vet.svg" alt="luna" className="emma" />

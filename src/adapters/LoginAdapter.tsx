@@ -38,10 +38,21 @@ const LoginAdapter = ({ email, password, idRol }: LoginProps) => {
 
       case "2":
         role = Roles.VETERINARIO;
-        dispatch(loginVet({ nombre: data.nombre, rol: role }));
+        dispatch(
+          loginVet({
+            id: data.id,
+            nombre: data.nombre,
+            direccion: data.direccion,
+            usuarios: data.usuarios,
+            veterinarios: data.veterinarios[0],
+            rol: role,
+          })
+        );
         navigate(`/${PrivateRoutes.HOME_PRIVATE_VETERINARIO}`, {
           replace: true,
         });
+        console.log(data);
+        data.veterinarios = data.veterinarios[0];
         localStorage.setItem("veterinario", JSON.stringify(data));
         break;
 

@@ -1,10 +1,20 @@
 import { Roles } from "@/models";
-import { VeterinarioInfo } from "@/models/veterinario.modal";
+import { VeterinarioRedux } from "@/models/veterinarioredux.modal";
 import { createSlice } from "@reduxjs/toolkit";
 
-export const EmptyUserState: VeterinarioInfo = {
+export const EmptyUserState: VeterinarioRedux = {
   id: 0,
   nombre: "",
+  direccion: "",
+  usuarios: [],
+  veterinarios: {
+    id: 0,
+    nombre: "",
+    registro: {
+      email: "",
+      password: "",
+    },
+  },
   rol: Roles.NO_REGISTRADO,
 };
 export const UserKey = "user";

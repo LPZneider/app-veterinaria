@@ -23,6 +23,7 @@ import { useSelector } from "react-redux";
 import { AppStore } from "../../../../../redux/store";
 import "./FormMascota.css";
 import { useParams } from "react-router-dom";
+
 export type FormMascotaProps = {
   id?: number;
   fechaNacimiento: string;
@@ -45,43 +46,36 @@ function Label() {
 }
 
 const FormMascota: React.FC = () => {
-  const params = useParams();
-  const mascotaIdString = params.mascotaId;
-  const mascotaId = parseInt(mascotaIdString ?? "0");
+  const params = useParams<{ mascotaId?: string }>();
+  const mascotaId = parseInt(params.mascotaId ?? "0", 10);
 
   const mascotaEdit = useSelector((store: AppStore) =>
     store.user.mascotas.find((m) => m.id === mascotaId)
   );
-  let mascotaPresent: FormMascotaProps = {
-    fechaNacimiento: "",
-    nombre: "",
-    raza: {
-      id: 0,
-    },
-    propietario: {
-      id: 0,
-    },
-  };
 
-  if (mascotaEdit) {
-    mascotaPresent = {
-      id: mascotaEdit.id,
-      nombre: mascotaEdit.nombre,
-      raza: mascotaEdit.raza,
-      fechaNacimiento: `${dayjs(
-        mascotaEdit.fechaNacimiento,
-        "MM-DD-YYYY"
-      ).format("YYYY-MM-DD")}`,
-      propietario: {
-        id: 0,
-      },
-    };
-  }
   const formattedFechaNacimiento = mascotaEdit
     ? dayjs(mascotaEdit.fechaNacimiento, "MM-DD-YYYY")
     : null;
 
-  const [mascota, setMascota] = useState(mascotaPresent);
+  const [mascota, setMascota] = useState<FormMascotaProps>(() => {
+    if (mascotaEdit) {
+      return {
+        id: mascotaEdit.id,
+        nombre: mascotaEdit.nombre,
+        raza: mascotaEdit.raza,
+        fechaNacimiento: formattedFechaNacimiento?.format("YYYY-MM-DD") || "",
+        propietario: { id: 0 },
+      };
+    } else {
+      return {
+        fechaNacimiento: "",
+        nombre: "",
+        raza: { id: 0 },
+        propietario: { id: 0 },
+      };
+    }
+  });
+
   const [razas, setRazas] = useState<Raza[]>([]);
   const [fechaForm] = useState<Dayjs | null>(
     mascotaEdit ? formattedFechaNacimiento : null
@@ -125,7 +119,6 @@ const FormMascota: React.FC = () => {
     }
   };
 
-  console.log(mascota);
   return (
     <div className=" home">
       <Navbar {...propsNavUser} />

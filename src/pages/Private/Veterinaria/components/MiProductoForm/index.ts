@@ -1,0 +1,1 @@
+export { default as MiProductoForm } from './MiProductoForm';

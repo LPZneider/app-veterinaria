@@ -17,8 +17,8 @@ const MiProductoDetalle: React.FC<MiProductoDetalleProps> = () => {
   const veterinariaState = useSelector((store: AppStore) => store.veterinaria);
   const navigate = useNavigate();
   const params = useParams();
-  const mascotaIdString = params.miProducto;
-  const productoId = parseInt(mascotaIdString ?? "0");
+  const productoIdString = params.miProducto;
+  const productoId = parseInt(productoIdString ?? "0");
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [deleteM, setDeleteM] = useState(false);
 
@@ -74,7 +74,10 @@ const MiProductoDetalle: React.FC<MiProductoDetalleProps> = () => {
             {showConfirmDialog && (
               <div className="dialog__remove">
                 <div className="dialog__remove__mascota">
-                  <p>¿Estás seguro de eliminar la mascota?</p>
+                  <p>
+                    ¿Estás seguro de eliminar el producto
+                    {" " + producto.nombre}?
+                  </p>
                   <Button
                     variant="contained"
                     color="primary"

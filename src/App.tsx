@@ -29,6 +29,7 @@ import { MiProductoForm } from "./pages/Private/Veterinaria/components/MiProduct
 import { MiVeterinarioForm } from "./pages/Private/Veterinaria/components/MiVeterinarioForm";
 import { CuentaVeterinario } from "./pages/Private/Veterinario/components/CuentaVeterinario";
 import { LogoutVeterinario } from "./pages/Private/Veterinario/components/LogoutVeterinario";
+import { MiPacientes } from "./pages/Private/Veterinario/components/MiPacientes";
 
 const theme = createTheme({
   palette: {
@@ -198,6 +199,10 @@ const rutasVet = [
   {
     element: <CuentaVeterinario />,
     path: PrivateRoutes.PRIVATE_VETERINARIO_CUENTA,
+  },
+  {
+    element: <MiPacientes />,
+    path: PrivateRoutes.PRIVATE_VETERINARIO_MIS_PACIENTES,
   },
   {
     element: <LogoutVeterinario />,

@@ -1,0 +1,39 @@
+.mipacientedetalle > .producto__detalle__article {
+  padding-top: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 100%;
+  align-items: center;
+  align-content: center;
+}
+
+@media (min-width: 700px) {
+  .mipacientedetalle > .producto__detalle__article {
+    min-height: 80vh;
+    justify-content: center;
+    column-gap: 3rem;
+    align-items: start;
+    flex-flow: row wrap;
+  }
+  .mipacientedetalle > .producto__detalle__article > .mascota__presentacion {
+    flex: 1 0 42%;
+  }
+  .mipacientedetalle h1 {
+    margin: 0;
+    padding: 0 0 1rem;
+  }
+  .tratamientos h2 {
+    padding-bottom: 1.2rem;
+  }
+  .mipacientedetalle p {
+    margin-bottom: 1.2rem;
+  }
+  .mascota__article__paciente > .mascota__detalle__imagen img {
+    border-radius: 2rem;
+    border: 1px solid #5f362c;
+  }
+  .mascota__article__paciente > .mascota__informacion p {
+    border-radius: 2rem;
+    border-bottom: 1px solid #5f362c;
+  }
+}

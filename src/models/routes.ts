@@ -31,5 +31,6 @@ export const PrivateRoutes = {
   HOME_PRIVATE_VETERINARIO: "veterinario",
   PRIVATE_VETERINARIO_CUENTA: "mi-cuenta-veterinario",
   PRIVATE_VETERINARIO_MIS_PACIENTES: "mis-pacientes",
+  PRIVATE_VETERINARIO_MIS_PACIENTES_DETALLE: "/mi-paciente/:mipaciente",
   LOGOUT_VETERINARIO: "cerrar-seccion-veterinario",
 };

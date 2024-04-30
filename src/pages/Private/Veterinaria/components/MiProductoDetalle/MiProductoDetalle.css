@@ -9,4 +9,19 @@
 
 .producto__detalle__article > .mascota__informacion {
   flex: 1 0 25%;
+  width: 100%;
+}
+
+.miproductodetalle > .producto__detalle__article {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+@media (min-width: 700px) {
+  .miproductodetalle > .producto__detalle__article {
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+  }
 }

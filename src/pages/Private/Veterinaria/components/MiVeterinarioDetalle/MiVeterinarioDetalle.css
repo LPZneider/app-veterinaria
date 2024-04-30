@@ -1,3 +1,13 @@
-.miveterinariodetalle {
-  
+.miveterinariodetalle > .producto__detalle__article {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+@media (min-width: 700px) {
+  .miveterinariodetalle > .producto__detalle__article {
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+  }
 }

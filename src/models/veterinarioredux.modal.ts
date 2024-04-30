@@ -2,7 +2,7 @@ import { Registro } from "./registro.modal";
 import { Roles } from "./roles";
 import { UserInfo } from "./user.modal";
 
-interface VeterinarioInfo {
+export interface VeterinarioInfoRedux {
   id: number;
   nombre: string;
   registro: Registro;
@@ -12,6 +12,6 @@ export interface VeterinarioRedux {
   nombre: string;
   direccion: string;
   usuarios: UserInfo[];
-  veterinarios: VeterinarioInfo;
+  veterinarios: VeterinarioInfoRedux;
   rol: Roles;
 }

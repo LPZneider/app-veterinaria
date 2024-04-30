@@ -1,5 +1,5 @@
 "use client";
-import EditVeterinarioAdapter from "@/adapters/EditVeterinarioAdapter";
+import EditVeterinarioReduxAdapter from "@/adapters/EditVeterinarioReduxAdapter";
 import { Navbar } from "@/components/Navbar";
 import { AppStore } from "@/redux/store";
 import { propsNavVetCuenta } from "@/utilities";
@@ -65,7 +65,7 @@ const CuentaVeterinario: React.FC<CuentaVeterinarioProps> = () => {
           </Button>
         )}
         {env && (
-          <EditVeterinarioAdapter
+          <EditVeterinarioReduxAdapter
             id={vetState.veterinarios.id}
             idVeterinaria={vetState.id}
             nombre={nombre}

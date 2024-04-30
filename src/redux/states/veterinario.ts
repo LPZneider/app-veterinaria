@@ -32,6 +32,9 @@ export const veterinarioSlice = createSlice({
         return state;
       }
     },
+    updateVet: (state, action) => {
+      return action.payload;
+    },
     logoutVet: (state) => {
       if (state.rol !== Roles.NO_REGISTRADO) {
         return EmptyUserState;
@@ -41,6 +44,6 @@ export const veterinarioSlice = createSlice({
     },
   },
 });
-export const { loginVet, logoutVet } = veterinarioSlice.actions;
+export const { loginVet, updateVet, logoutVet } = veterinarioSlice.actions;
 
 export default veterinarioSlice.reducer;

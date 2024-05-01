@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import DeleteTratamientoAdapter from "@/adapters/DeleteTratamientoAdapter";
 import { useAsync, useFetchAndLoad } from "@/hooks";
+import { AppStore } from "@/redux/store";
 import getTratamientoId from "@/services/TratamientoId.service";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -16,13 +18,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 function createData(
+  id: number,
   name: string,
   estado: number,
-  editar: JSX.Element,
-  eliminar: JSX.Element,
   history: [
     {
       date: string;
@@ -30,15 +32,30 @@ function createData(
   ]
 ) {
   return {
+    id,
     name,
-    calories: estado,
-    fat: editar,
-    carbs: eliminar,
+    estado,
     history,
   };
 }
 
 function Row(props: { row: ReturnType<typeof createData> }) {
+  const veterinarioState = useSelector((store: AppStore) => store.veterinario);
+  const [showConfirmDialog, setShowConfirmDialog] = React.useState(false);
+  const [deleteM, setDeleteM] = React.useState(false);
+
+  const handleDelete = () => {
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmDelete = () => {
+    setDeleteM(true);
+    setShowConfirmDialog(false);
+  };
+
+  const handleCancelDelete = () => {
+    setShowConfirmDialog(false);
+  };
   const { row } = props;
   const [open, setOpen] = React.useState(false);
 
@@ -57,9 +74,49 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell component="th" scope="row">
           {row.name}
         </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="right">{row.carbs}</TableCell>
+        <TableCell align="right">{row.estado}</TableCell>
+        <TableCell align="right">
+          <Button color="secondary" variant="contained">
+            Editar
+          </Button>
+        </TableCell>
+        <TableCell align="right">
+          <Button
+            className="Button"
+            variant="outlined"
+            color="secondary"
+            onClick={handleDelete}
+          >
+            Eliminar
+          </Button>
+          {showConfirmDialog && (
+            <div className="dialog__remove">
+              <div className="dialog__remove__mascota">
+                <p>¿Estás seguro de eliminar este tratamiento?</p>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleConfirmDelete}
+                >
+                  Sí
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleCancelDelete}
+                >
+                  No
+                </Button>
+              </div>
+            </div>
+          )}
+          {deleteM && (
+            <DeleteTratamientoAdapter
+              id={row.id}
+              idVeterinario={veterinarioState.veterinarios.id}
+            />
+          )}
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -95,10 +152,14 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 interface PropsTabla {
   idVeterinario: number;
 }
-const rows: ReturnType<typeof createData>[] = [];
+
 const TablaTratamientos: React.FC<PropsTabla> = ({
   idVeterinario,
 }: PropsTabla) => {
+  const [tratamientos, setTratamientos] = React.useState<
+    ReturnType<typeof createData>[]
+  >([]);
+
   const params = useParams();
   const pacienteIdString = params.mipaciente;
   const pacienteId = parseInt(pacienteIdString ?? "0");
@@ -110,23 +171,22 @@ const TablaTratamientos: React.FC<PropsTabla> = ({
   const adaptUser = (data: any) => {
     console.log(data);
     if (data.length > 0) {
-      data.forEach((element: any) => {
-        rows.push(
-          createData(
-            element.nombre,
-            100,
-            <Button color="secondary" variant="contained">
-              Editar
-            </Button>,
-            <Button color="secondary" variant="outlined">
-              Eliminar
-            </Button>,
-            [{ date: element.descripcion }]
-          )
-        );
+      setTratamientos((oldState) => {
+        // Mapeamos los elementos de 'data' a un nuevo array de datos tratados
+        const newData = data.map((element: any) => {
+          return createData(element.id, element.nombre, 100, [
+            { date: element.descripcion },
+          ]);
+        });
+        return [...oldState, ...newData];
       });
     }
   };
+  React.useEffect(() => {
+    return () => {
+      setTratamientos([]);
+    };
+  }, []);
   useAsync(getApiData, adaptUser, () => {});
 
   return (
@@ -142,7 +202,7 @@ const TablaTratamientos: React.FC<PropsTabla> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {tratamientos.map((row) => (
             <Row key={row.name} row={row} />
           ))}
         </TableBody>

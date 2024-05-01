@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { AppStore } from "@/redux/store";
 import { Alert, Button } from "@mui/material";
 import AddUserAdapter from "@/adapters/AddUserAdapter";
-import RemoveUserAdapter from "@/adapters/RemoveUserAdapter";
+import RemoveUserAdapter from "@/adapters/DeleteUserAdapter";
 
 export type VeterinariasDetalleProps = {
   // types...
@@ -23,6 +23,11 @@ const EmptyVeteState: VeterinariaInfo = {
   usuarios: [],
   veterinarios: [],
   rol: Roles.NO_REGISTRADO,
+  productos: [],
+  registro: {
+    email: "",
+    password: "",
+  },
 };
 
 const VeterinariasDetalle: React.FC<VeterinariasDetalleProps> = () => {

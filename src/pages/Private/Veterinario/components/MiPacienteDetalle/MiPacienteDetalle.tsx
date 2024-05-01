@@ -16,6 +16,7 @@ const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
   const params = useParams();
   const pacienteIdString = params.mipaciente;
   const pacienteId = parseInt(pacienteIdString ?? "0");
+  const vetState = useSelector((store: AppStore) => store.veterinario);
 
   const paciente = useSelector((store: AppStore) => {
     const pacientes = store.veterinario.usuarios;
@@ -51,7 +52,7 @@ const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
           </p>
           <article className="tratamientos">
             <h2>Tratamientos</h2>
-            <TablaTratamientos />
+            <TablaTratamientos idVeterinario={vetState.id} />
           </article>
         </section>
         <article className="mascota__article__paciente">

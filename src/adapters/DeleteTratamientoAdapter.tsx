@@ -28,7 +28,7 @@ const DeleteTratamientoAdapter = ({ id, idVeterinario }: deleteTratamieto) => {
     };
     dispatch(updateVeterinaria(updatedVeterinarioState));
 
-    navigate(`/mis-productos`, { replace: true });
+    navigate(`/mis-pacientes`, { replace: true });
 
     const datalocal = localStorage.getItem("veterinario");
     const datalocalobj = datalocal ? JSON.parse(datalocal) : { usuarios: [] };

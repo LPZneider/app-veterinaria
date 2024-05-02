@@ -21,7 +21,6 @@
   margin: 0 0 2rem;
 }
 .informacion__paciente {
-  /*  overflow-x: scroll; */
   max-width: 100%;
 }
 @media (min-width: 700px) {

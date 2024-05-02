@@ -128,12 +128,12 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                Informacion
+                Información
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Descripcion</TableCell>
+                    <TableCell>Descripción</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>

@@ -15,7 +15,7 @@ const Mascotas: React.FC = () => {
       <Navbar {...propsNavUserMascota} />
       <article className="container__mascota">
         {!userState.mascotas ? (
-          <section>no hay mascotas</section>
+          <section>No hay mascotas.</section>
         ) : (
           userState.mascotas.map((mascota) => (
             <section
@@ -38,7 +38,7 @@ const Mascotas: React.FC = () => {
                 className="button__mascota"
                 onClick={() => navigate(`/mascotas/${mascota.id}`)}
               >
-                Ver mas
+                Ver más
               </button>
             </section>
           ))

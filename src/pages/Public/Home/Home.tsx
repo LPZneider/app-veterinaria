@@ -1,4 +1,3 @@
-"use client";
 import { Navbar } from "@/components/Navbar";
 import { propsNavHome } from "@/utilities/navProps";
 import React from "react";
@@ -13,15 +12,17 @@ const Home: React.FC = () => {
           <img src="/public/assets/mara.png" alt="mara" className="mara" />
         </div>
         <h1 className="flex-item">
-          En nuestras manos y corazón, la salud y bienestar de tu mejor amigo
+          En nuestras manos y corazón, la salud y el bienestar de tu mejor
+          amigo.
         </h1>
       </section>
       <div className="contenido-main">
-        Lorem ipsum dolor sit amet consectetur, adipisicing Necessitatibus
-        molestiae tempore voluptas veritatis earum obcaecati culpa error ipsa
-        reprehenderit deleniti doloribus, cum accusamus cupiditate vitae,
-        impedit repellat natus vero numquam? Lorem ipsum dolor, sit amet itae,
-        impedit repellat natus vero numquam? Lorem ipsum dolor, sit amet itae,
+        En la mirada confiada de una mascota, encontramos un amor que trasciende
+        las palabras. Su lealtad inquebrantable y su afecto incondicional nos
+        enseñan a valorar los momentos simples y a abrazar la belleza de la
+        conexión pura. En su compañía, encontramos consuelo, alegría y un
+        recordatorio constante de la capacidad del amor para enriquecer nuestras
+        vidas más allá de las palabras.
         <section className="servicios">
           <article className="article-servicio">
             <img
@@ -29,7 +30,7 @@ const Home: React.FC = () => {
               alt="servicio1"
               className="servicio-imagen"
             />
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing </h2>
+            <h2>Porque las mascotas saludables son mascotas felices.</h2>
           </article>
           <article className="article-servicio">
             <img
@@ -37,7 +38,7 @@ const Home: React.FC = () => {
               alt="servicio1"
               className="servicio-imagen"
             />
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing </h2>
+            <h2>Variedad de servicios para tu mejor amigo.</h2>
           </article>
           <article className="article-servicio">
             <img
@@ -45,7 +46,9 @@ const Home: React.FC = () => {
               alt="servicio1"
               className="servicio-imagen"
             />
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing </h2>
+            <h2>
+              Calidad y variedad en productos para el bienestar de tus mascotas.
+            </h2>
           </article>
           <article className="article-servicio">
             <img
@@ -53,7 +56,7 @@ const Home: React.FC = () => {
               alt="servicio1"
               className="servicio-imagen"
             />
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing </h2>
+            <h2>Fortalece el vínculo con nuestro adiestramiento experto.</h2>
           </article>
         </section>
       </div>

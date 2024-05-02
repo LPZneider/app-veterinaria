@@ -49,10 +49,12 @@ const MiProductoDetalle: React.FC<MiProductoDetalleProps> = () => {
         <section className="mascota__presentacion">
           <h1>{producto.nombre}</h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ut
-            ipsam inventore iusto quasi tempore numquam magnam facere, quisquam
-            ad fugit quam ipsa, aperiam maiores animi totam dolor quaerat
-            provident!
+            En nuestra búsqueda constante por el bienestar de las mascotas, nos
+            esforzamos por seleccionar y ofrecer los mejores productos
+            disponibles en el mercado. Nos comprometemos a proporcionar opciones
+            que promuevan la salud, la comodidad y la alegría de nuestros amigos
+            peludos, garantizando así su felicidad y satisfacción en cada etapa
+            de sus vidas.
           </p>
           <div className="buttons">
             <Button

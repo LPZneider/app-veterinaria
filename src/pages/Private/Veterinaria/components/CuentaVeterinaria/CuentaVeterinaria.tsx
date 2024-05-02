@@ -37,7 +37,7 @@ const CuentaVeterinaria: React.FC<CuentaVeterinariaProps> = () => {
         />
         <TextField
           id="standard"
-          label="Direccion"
+          label="Dirección"
           variant="standard"
           color="secondary"
           value={direccion}

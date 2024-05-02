@@ -14,8 +14,8 @@ const User: React.FC = () => {
       <Navbar {...propsNavUser} />
       <section className="user">
         <h1 className="titulo__user">
-          bienvenido {userState.nombre} a Mara sitio de veterinarias, servicios
-          y productos
+          Bienvenido, {userState.nombre}, a Mara, el sitio de veterinarias,
+          servicios y productos.
         </h1>
         <div className="div-emma">
           <img src="/public/assets/emma.svg" alt="luna" className="emma" />

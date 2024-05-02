@@ -32,7 +32,7 @@ const MiProductos: React.FC<MiProductosProps> = () => {
                 className="button__mascota"
                 onClick={() => navigate(`/mis-productos/${producto.id}`)}
               >
-                Ver mas
+                Ver más
               </button>
             </section>
           ))}

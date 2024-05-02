@@ -49,10 +49,11 @@ const MiVeterinarioDetalle: React.FC<MiVeterinarioDetalleProps> = () => {
         <section className="mascota__presentacion">
           <h1>{veterinario.nombre}</h1>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ut
-            ipsam inventore iusto quasi tempore numquam magnam facere, quisquam
-            ad fugit quam ipsa, aperiam maiores animi totam dolor quaerat
-            provident!
+            Nuestro compromiso con la excelencia veterinaria se refleja en cada
+            consulta, tratamiento y cuidado que brindamos a tus mascotas. Nos
+            dedicamos a proporcionar atención compasiva y experta, con el
+            objetivo de promover la salud y el bienestar de tus amigos peludos
+            en todo momento.
           </p>
           <div className="buttons">
             <Button
@@ -110,8 +111,8 @@ const MiVeterinarioDetalle: React.FC<MiVeterinarioDetalleProps> = () => {
           />
         </section>
         <section className="mascota__informacion">
-          <h2>tratamientos</h2>
-          <p>{veterinario.nombre}</p>
+          <h2>Tratamientos</h2>
+          <p>No hay tratamientos que mostrar aún.</p>
         </section>
       </article>
     </div>

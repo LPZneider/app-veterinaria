@@ -13,7 +13,7 @@ const Veterinaria: React.FC = () => {
       <Navbar {...propsNavVeterinaria} />
       <section className="user">
         <h1 className="titulo__user">
-          Bienvenido {userState.nombre} a mara lugar de clientes y ventas
+          Bienvenido, {userState.nombre}, a Mara, el lugar de clientes y ventas.
         </h1>
         <div className="div-emma">
           <img src="/public/assets/vet.svg" alt="luna" className="emma" />

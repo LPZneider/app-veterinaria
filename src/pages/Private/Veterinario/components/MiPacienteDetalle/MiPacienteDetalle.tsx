@@ -1,4 +1,3 @@
-"use client";
 import { Navbar } from "@/components/Navbar";
 import { AppStore } from "@/redux/store";
 import { propsNavVetCuenta } from "@/utilities";
@@ -9,11 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { TablaTratamientos } from "../TablaTratamientos";
 import "./MiPacienteDetalle.css";
 
-export type MiPacienteDetalleProps = {
-  // types...
-};
-//mipaciente
-const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
+const MiPacienteDetalle: React.FC = () => {
   const navigate = useNavigate();
   const params = useParams();
   const pacienteIdString = params.mipaciente;
@@ -68,7 +63,7 @@ const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
           <section className="mascota__detalle__imagen">
             <img
               src={`/public/assets/dog${Math.floor(Math.random() * 5) + 1}.svg`}
-              alt="icono mascota"
+              alt="Icono mascota"
             />
           </section>
           <section className="mascota__informacion">

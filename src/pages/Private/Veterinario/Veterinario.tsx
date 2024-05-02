@@ -17,7 +17,7 @@ const Veterinario: React.FC<VeterinarioProps> = () => {
       <Navbar {...propsNavVet} />
       <section className="user">
         <h1 className="titulo__user">
-          Bienvenido Veterinario {veterinarioState.veterinarios.nombre} a Mara
+          Bienvenido Veterinario {veterinarioState.veterinarios.nombre} a Mara,
           lugar de tratamientos y citas.
         </h1>
         <div className="div-emma">

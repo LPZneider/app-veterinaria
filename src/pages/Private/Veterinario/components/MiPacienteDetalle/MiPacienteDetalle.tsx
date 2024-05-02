@@ -43,7 +43,7 @@ const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
     <div className="mipacientedetalle home">
       <Navbar {...propsNavVetCuenta} />
       <article className="producto__detalle__article">
-        <section className="mascota__presentacion">
+        <section className="informacion__paciente">
           <h1>{paciente.nombre}</h1>
           <p>
             Cada mascota llevaba consigo un tesoro de amor y compasión, como un

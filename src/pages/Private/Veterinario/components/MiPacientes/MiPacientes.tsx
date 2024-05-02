@@ -19,7 +19,7 @@ const MiPacientes: React.FC<MiPacientesProps> = () => {
       <Navbar {...propsNavVetCuenta} />
       {vetState.usuarios.map((usuario) => {
         return (
-          <div className="container__mascota">
+          <div key={usuario.id} className="container__mascota">
             {usuario.mascotas.map((mascota) => {
               return (
                 <section

@@ -1,13 +1,28 @@
 .mipacientedetalle > .producto__detalle__article {
   padding-top: 1rem;
   display: flex;
-  flex-flow: column wrap;
-  max-width: 100%;
-  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-content: center;
 }
+.mipacientedetalle > .producto__detalle__article > * {
+  flex: 1 1 100%;
+}
+.mipacientedetalle p {
+  margin-bottom: 1.2rem;
+}
+
+.tratamientos h2 {
+  padding-bottom: 1.2rem;
+}
+
 .tratamientos > .button__tratamiento {
   margin: 0 0 2rem;
+}
+.informacion__paciente {
+  /*  overflow-x: scroll; */
+  max-width: 100%;
 }
 @media (min-width: 700px) {
   .mipacientedetalle > .producto__detalle__article {
@@ -17,19 +32,14 @@
     align-items: start;
     flex-flow: row wrap;
   }
-  .mipacientedetalle > .producto__detalle__article > .mascota__presentacion {
-    flex: 1 0 42%;
+  .mipacientedetalle > .producto__detalle__article > * {
+    flex: 1 1 40%;
   }
   .mipacientedetalle h1 {
     margin: 0;
     padding: 0 0 1rem;
   }
-  .tratamientos h2 {
-    padding-bottom: 1.2rem;
-  }
-  .mipacientedetalle p {
-    margin-bottom: 1.2rem;
-  }
+
   .mascota__article__paciente > .mascota__detalle__imagen img {
     border-radius: 2rem;
     border: 1px solid #5f362c;

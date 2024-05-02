@@ -19,7 +19,7 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function createData(
   id: number,
@@ -43,6 +43,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   const veterinarioState = useSelector((store: AppStore) => store.veterinario);
   const [showConfirmDialog, setShowConfirmDialog] = React.useState(false);
   const [deleteM, setDeleteM] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleDelete = () => {
     setShowConfirmDialog(true);
@@ -76,7 +77,11 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         </TableCell>
         <TableCell align="right">{row.estado}</TableCell>
         <TableCell align="right">
-          <Button color="secondary" variant="contained">
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={() => navigate(`/mi-tratamiento/${row.id}`)}
+          >
             Editar
           </Button>
         </TableCell>

@@ -18,7 +18,7 @@ export type MiTratamientoFormProps = {
   descripcion: string;
 };
 
-const MiTratamientoForm: React.FC<MiTratamientoFormProps> = () => {
+const MiTratamientoForm: React.FC = () => {
   const params = useParams<{ mipaciente?: string }>();
   const tratamientoId = parseInt(params.mipaciente ?? "0", 10);
 

@@ -6,7 +6,9 @@
   align-items: center;
   align-content: center;
 }
-
+.tratamientos > .button__tratamiento {
+  margin: 0 0 2rem;
+}
 @media (min-width: 700px) {
   .mipacientedetalle > .producto__detalle__article {
     min-height: 80vh;

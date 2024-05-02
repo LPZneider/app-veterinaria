@@ -54,6 +54,7 @@ const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
           <article className="tratamientos">
             <h2>Tratamientos</h2>
             <Button
+              className="button__tratamiento"
               color="secondary"
               variant="outlined"
               onClick={() => navigate(`/mi-tratamiento-form/${paciente.id}`)}

@@ -37,7 +37,7 @@ const VeterinariasDetalle: React.FC<VeterinariasDetalleProps> = () => {
   const params = useParams();
   const veterinariaIdString = params.veterinariaId;
   const veterinariaId = parseInt(veterinariaIdString ?? "0");
-  const { callEndpoint } = useFetchAndLoad();
+  const { loading, callEndpoint } = useFetchAndLoad();
 
   const getApiData = async () =>
     await callEndpoint(getVeterinariasId(veterinariaId));
@@ -54,102 +54,105 @@ const VeterinariasDetalle: React.FC<VeterinariasDetalleProps> = () => {
   return (
     <div className="veterinariadetalle home">
       <Navbar {...propsNavUserVeterinaria} />
+      {loading ? (
+        <img src="/public/assets/loader.svg" alt="loading" width={30} />
+      ) : (
+        <div className="veterinaria__detalle">
+          <section className="imagen_veterinaria">
+            <img
+              src={`/public/assets/dog${Math.floor(Math.random() * 5) + 1}.svg`}
+              alt="icono mascota"
+            />
+          </section>
+          <section className="informacion__veterinaria">
+            <h1>{veterinaria.nombre}</h1>
 
-      <div className="veterinaria__detalle">
-        <section className="imagen_veterinaria">
-          <img
-            src={`/public/assets/dog${Math.floor(Math.random() * 5) + 1}.svg`}
-            alt="icono mascota"
-          />
-        </section>
-        <section className="informacion__veterinaria">
-          <h1>{veterinaria.nombre}</h1>
-
-          <div className="alerta">
-            {veterinaria.usuarios.find((usuario) => {
-              return usuario.id === userState.id;
-            }) ? (
-              <>
-                <Alert
-                  severity="success"
-                  variant="outlined"
-                  action={
-                    <Button
-                      color="success"
-                      size="small"
-                      variant="contained"
-                      onClick={() => setAnular(!anular)}
-                    >
-                      Anular
-                    </Button>
-                  }
-                >
-                  Estas suscrito
-                </Alert>
-                {anular && (
-                  <RemoveUserAdapter
-                    idUsuario={userState.id}
-                    idVeterinaria={veterinaria.id}
-                  />
-                )}
-              </>
-            ) : (
-              <>
-                <Alert
-                  severity="info"
-                  variant="outlined"
-                  action={
-                    <Button
-                      color="success"
-                      size="small"
-                      variant="contained"
-                      onClick={() => setSuscribirse(!suscribirse)}
-                    >
-                      Suscribirse
-                    </Button>
-                  }
-                >
-                  No estas suscrito
-                </Alert>
-                {suscribirse && (
-                  <AddUserAdapter
-                    idUsuario={userState.id}
-                    idVeterinaria={veterinaria.id}
-                  />
-                )}
-              </>
-            )}
-          </div>
-
-          <p className="texto__veterinaria">
-            En cada veterinaria, florece un jardín de amor y compromiso, una
-            sinfonía silenciosa de entrega hacia cada ser que busca su ayuda.
-            Con su toque gentil y su mente llena de conocimiento, ellas cuidan y
-            protegen, recordándonos la importancia de cada criatura en el
-            mosaico de la vida.
-          </p>
-
-          <h2>Veterinarios inscritos</h2>
-          <div className="info">
-            {veterinaria.veterinarios &&
-              veterinaria.veterinarios.map((vete) => (
-                <section key={vete.nombre} className="item__veterinaria">
-                  <section className="item__image__veterinaria">
-                    <img
-                      src={`/public/assets/dog${
-                        Math.floor(Math.random() * 5) + 1
-                      }.svg`}
-                      alt="icono mascota"
+            <div className="alerta">
+              {veterinaria.usuarios.find((usuario) => {
+                return usuario.id === userState.id;
+              }) ? (
+                <>
+                  <Alert
+                    severity="success"
+                    variant="outlined"
+                    action={
+                      <Button
+                        color="success"
+                        size="small"
+                        variant="contained"
+                        onClick={() => setAnular(!anular)}
+                      >
+                        Anular
+                      </Button>
+                    }
+                  >
+                    Estas suscrito
+                  </Alert>
+                  {anular && (
+                    <RemoveUserAdapter
+                      idUsuario={userState.id}
+                      idVeterinaria={veterinaria.id}
                     />
+                  )}
+                </>
+              ) : (
+                <>
+                  <Alert
+                    severity="info"
+                    variant="outlined"
+                    action={
+                      <Button
+                        color="success"
+                        size="small"
+                        variant="contained"
+                        onClick={() => setSuscribirse(!suscribirse)}
+                      >
+                        Suscribirse
+                      </Button>
+                    }
+                  >
+                    No estas suscrito
+                  </Alert>
+                  {suscribirse && (
+                    <AddUserAdapter
+                      idUsuario={userState.id}
+                      idVeterinaria={veterinaria.id}
+                    />
+                  )}
+                </>
+              )}
+            </div>
+
+            <p className="texto__veterinaria">
+              En cada veterinaria, florece un jardín de amor y compromiso, una
+              sinfonía silenciosa de entrega hacia cada ser que busca su ayuda.
+              Con su toque gentil y su mente llena de conocimiento, ellas cuidan
+              y protegen, recordándonos la importancia de cada criatura en el
+              mosaico de la vida.
+            </p>
+
+            <h2>Veterinarios inscritos</h2>
+            <div className="info">
+              {veterinaria.veterinarios &&
+                veterinaria.veterinarios.map((vete) => (
+                  <section key={vete.nombre} className="item__veterinaria">
+                    <section className="item__image__veterinaria">
+                      <img
+                        src={`/public/assets/dog${
+                          Math.floor(Math.random() * 5) + 1
+                        }.svg`}
+                        alt="icono mascota"
+                      />
+                    </section>
+                    <article className="info__veterinaria">
+                      <h2 className="titulo__veterinaria">{vete.nombre}</h2>
+                    </article>
                   </section>
-                  <article className="info__veterinaria">
-                    <h2 className="titulo__veterinaria">{vete.nombre}</h2>
-                  </article>
-                </section>
-              ))}
-          </div>
-        </section>
-      </div>
+                ))}
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 };

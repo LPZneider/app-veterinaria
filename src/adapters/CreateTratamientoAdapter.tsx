@@ -1,32 +1,34 @@
 import { useAsync, useFetchAndLoad } from "@/hooks";
+import { CreateTratamiento } from "@/models/createTratamiento";
 import { updateVet } from "@/redux/states/veterinario";
 import { AppStore } from "@/redux/store";
-import deleteTratamiento from "@/services/TratamientoDelete.service";
+import getTratamieto from "@/services/tratamiento.service";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-interface deleteTratamieto {
-  id: number;
-  idVeterinario: number;
-}
-
-const DeleteTratamientoAdapter = ({ id, idVeterinario }: deleteTratamieto) => {
+const CreateTratamientoAdapter = ({
+  nombre,
+  descripcion,
+  id_veterinario,
+  id_mascota,
+}: CreateTratamiento) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const veterinarioState = useSelector((store: AppStore) => store.veterinario);
+  const veteState = useSelector((store: AppStore) => store.veterinario);
 
   const { loading, callEndpoint } = useFetchAndLoad();
   const getApiData = async () =>
-    await callEndpoint(deleteTratamiento(idVeterinario, id));
+    await callEndpoint(
+      getTratamieto({ nombre, descripcion, id_veterinario, id_mascota })
+    );
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const adaptUser = (data: any) => {
-    console.log(data);
-    const updatedVeterinarioState = {
-      ...veterinarioState,
+    const updatedVetState = {
+      ...veteState,
       usuarios: data,
     };
-    dispatch(updateVet(updatedVeterinarioState));
+    dispatch(updateVet(updatedVetState));
 
     navigate(`/mis-pacientes`, { replace: true });
 
@@ -47,4 +49,4 @@ const DeleteTratamientoAdapter = ({ id, idVeterinario }: deleteTratamieto) => {
     </p>
   );
 };
-export default DeleteTratamientoAdapter;
+export default CreateTratamientoAdapter;

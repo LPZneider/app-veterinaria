@@ -28,8 +28,7 @@ const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
         return mascota;
       }
     }
-    // Si no se encuentra la mascota, puedes devolver un valor por defecto o lanzar un error, según tu lógica de la aplicación
-    return null; // O lanzar un error, o devolver un objeto que represente la falta de la mascota
+    return null;
   });
   const fechaNacimiento = paciente?.fechaNacimiento
     ? new Date(paciente.fechaNacimiento)

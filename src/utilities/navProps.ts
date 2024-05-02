@@ -133,10 +133,19 @@ export const propsNavVet: PropsNav = {
   pages: [{ title: "Mis pacientes", path: "/mis-pacientes" }],
   settings: settingsVeterinario,
 };
+
 export const propsNavVetCuenta: PropsNav = {
   pages: [
     { title: "Mis pacientes", path: "/mis-pacientes" },
     { title: "Home", path: "/veterinario" },
+  ],
+  settings: settingsVeterinario,
+};
+export const propsNavVetMiPacienteDetalle: PropsNav = {
+  pages: [
+    { title: "Mis pacientes", path: "/mis-pacientes" },
+    { title: "Home", path: "/veterinario" },
+    { title: "Agregar Tratamiento", path: "/veterinario" },
   ],
   settings: settingsVeterinario,
 };

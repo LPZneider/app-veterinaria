@@ -2,17 +2,19 @@
 import { Navbar } from "@/components/Navbar";
 import { AppStore } from "@/redux/store";
 import { propsNavVetCuenta } from "@/utilities";
+import { Button } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import "./MiPacienteDetalle.css";
+import { useNavigate, useParams } from "react-router-dom";
 import { TablaTratamientos } from "../TablaTratamientos";
+import "./MiPacienteDetalle.css";
 
 export type MiPacienteDetalleProps = {
   // types...
 };
 //mipaciente
 const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const pacienteIdString = params.mipaciente;
   const pacienteId = parseInt(pacienteIdString ?? "0");
@@ -51,6 +53,13 @@ const MiPacienteDetalle: React.FC<MiPacienteDetalleProps> = () => {
           </p>
           <article className="tratamientos">
             <h2>Tratamientos</h2>
+            <Button
+              color="secondary"
+              variant="outlined"
+              onClick={() => navigate(`/mi-tratamiento-form/${paciente.id}`)}
+            >
+              Agregar nuevo tratamiento
+            </Button>
             <TablaTratamientos idVeterinario={vetState.id} />
           </article>
         </section>

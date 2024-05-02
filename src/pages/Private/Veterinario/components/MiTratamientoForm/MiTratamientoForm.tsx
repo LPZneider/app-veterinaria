@@ -21,6 +21,8 @@ export type MiTratamientoFormProps = {
 const MiTratamientoForm: React.FC = () => {
   const params = useParams<{ mipaciente?: string }>();
   const tratamientoId = parseInt(params.mipaciente ?? "0", 10);
+  const paramsMas = useParams<{ miMascota?: string }>();
+  const mascotaId = parseInt(paramsMas.miMascota ?? "0", 10);
 
   const TratamientoEdit: Tratamiento | undefined = useSelector(
     (store: AppStore) => {
@@ -29,7 +31,7 @@ const MiTratamientoForm: React.FC = () => {
           const tratamiento = mascota.tratamientos.find(
             (t) => t.id === tratamientoId
           );
-          if (tratamiento) {
+          if (tratamiento && !mascotaId) {
             return tratamiento; // Devuelve el tratamiento si se encuentra
           }
         }
@@ -44,12 +46,12 @@ const MiTratamientoForm: React.FC = () => {
         const tratamiento = mascota.tratamientos.find(
           (t) => t.id === tratamientoId
         );
-        if (tratamiento) {
+        if (tratamiento && !mascotaId) {
           return mascota.id; // Devuelve el ID de la mascota que tiene el tratamiento
         }
       }
     }
-    return undefined;
+    return mascotaId;
   });
 
   const vetState = useSelector((store: AppStore) => store.veterinario);
@@ -81,7 +83,7 @@ const MiTratamientoForm: React.FC = () => {
     }
   };
   return (
-    <div className="mitratamientoform home">
+    <div className="producto__form home">
       <Navbar {...propsNavVetCuenta} />
       <article className="formulario__mascota_crear">
         <TextField
